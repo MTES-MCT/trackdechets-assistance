@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+<div class="header  ">
+    <img src="{% static "img/trackdechets.png" %}" width="70px" height="70px">
+    <h1>Assistance Trackdéchets</h1>
+</div>
+<div hx-get="{% url "page" 1 %}" class="block" id="block" hx-swap="outerHTML" hx-trigger="load">
+
+</div>
+
+<script src="{% static "js/htmlx.js" %}" defer></script>
+</body>
+</html>
