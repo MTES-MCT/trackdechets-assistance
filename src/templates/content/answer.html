@@ -3,16 +3,17 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Assistance Trackdéchets</title>
     <link rel="stylesheet" href="{% static "css/normalize.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
+
 <div class="header  ">
-    <img src="{% static "img/trackdechets.png" %}" width="70px" height="70px">
+    <a href="/"><img src="{% static "img/trackdechets.png" %}" width="70px" height="70px"></a>
     <h1>Assistance Trackdéchets</h1>
 </div>
-<div hx-get="{% url "page" 1 %}" class="block" id="block" hx-swap="outerHTML" hx-trigger="load">
+<div hx-get="{% url "page" home_page_pk %}" class="block" id="block" hx-swap="outerHTML" hx-trigger="load">
 
 </div>
 
