@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==4.0.1"
+django-environ = "*"
+gunicorn = "*"
+pytest-django = "*"
+psycopg2 = "*"
+django-admin-sortable2 = "*"
+markdown = "*"
+
+[dev-packages]
+black = "*"
+flake8 = "*"
+isort = "*"
+
+[requires]
+python_version = "3.9"
