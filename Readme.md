@@ -1,8 +1,8 @@
 # Trackdéchets assistance
 
-**Validation de fichiers d'import en masse**
+**CMs pour l'assistance Trackdéchets**
 
-<img height="100px" style="margin-right: 20px" src="./src/common_static/img/trackdechets-logo.png" alt="logo"></img>
+<img height="100px" style="margin-right: 20px" src="./src/static/img/trackdechets.png" alt="logo"></img>
 <img height="100px" src="./src/common_static/img/mtes-logo.svg" alt="logo"></img>
 
 # Introduction
