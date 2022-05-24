@@ -11,6 +11,7 @@ pytest-django = "*"
 psycopg2 = "*"
 django-admin-sortable2 = "*"
 markdown = "*"
+whitenoise = "*"
 
 [dev-packages]
 black = "*"
