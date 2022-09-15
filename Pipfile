@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 django = "==4.1.1"
 django-environ = "*"
-dj-static = "*"
+whitenoise = "*"
 gunicorn = "*"
 pytest-django = "*"
 psycopg2-binary = "*"
