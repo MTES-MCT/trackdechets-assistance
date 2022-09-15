@@ -32,6 +32,20 @@ $ pipenv install -d
 
 Se référer au fichier src/core/settings/env.dist
 
+# Linting
+
+Utiliser : 
+
+```
+    $ ./lint.sh
+```
+
+et pour les templates :
+
+```
+    $ djlint templates --profile=django --reformat
+```
+
 ## Licence
 
 Le code source du logiciel est publié sous licence [MIT](https://fr.wikipedia.org/wiki/Licence_MIT).

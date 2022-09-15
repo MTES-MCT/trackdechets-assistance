@@ -20,21 +20,23 @@ environ.Env.read_env(BASE_DIR / ".env")
 
 # Application definition
 
+
 INSTALLED_APPS = [
+    "grappelli",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "adminsortable2",
+    "mptt",
+    "martor",
     "accounts",
     "content",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -100,14 +102,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-AUTH_USER_MODEL = "accounts.User"
-
+STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -115,5 +110,36 @@ STATICFILES_FINDERS = (
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+# Default primary key field type
+# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "accounts.User"
 
 ADMIN_SLUG = env("ADMIN_SLUG")
+
+MARTOR_ENABLE_CONFIGS = {
+    "emoji": "true",  # to enable/disable emoji icons.
+    "imgur": "false",  # to enable/disable imgur/custom uploader.
+    "mention": "false",  # to enable/disable mention
+    "jquery": "true",  # to include/revoke jquery (require for admin default django)
+    "living": "false",  # to enable/disable live updates in preview
+    "spellcheck": "false",  # to enable/disable spellcheck in form textareas
+    "hljs": "false",  # to enable/disable hljs highlighting in preview
+}
+
+# To show the toolbar buttons
+MARTOR_TOOLBAR_BUTTONS = [
+    "bold",
+    "italic",
+    "horizontal",
+    "heading",
+    "blockquote",
+    "unordered-list",
+    "ordered-list",
+    "link",
+    "emoji",
+    "toggle-maximize",
+    "help",
+]

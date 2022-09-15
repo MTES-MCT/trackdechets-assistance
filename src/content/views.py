@@ -8,7 +8,7 @@ class AnswerView(TemplateView):
     template_name = "content/answer.html"
 
     def get_context_data(self, **kwargs):
-        home_page = Page.objects.order_by("position").first()
+        home_page = Page.objects.order_by("level").first()
         if not home_page:
             raise Http404
         return super().get_context_data(**kwargs, home_page_pk=home_page.pk)

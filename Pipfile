@@ -6,15 +6,19 @@ name = "pypi"
 [packages]
 django = "==4.1.1"
 django-environ = "*"
+dj-static = "*"
 gunicorn = "*"
 pytest-django = "*"
 psycopg2 = "*"
 django-admin-sortable2 = "*"
 markdown = "*"
-whitenoise = "*"
+django-mptt = "*"
+django-grappelli = "*"
+martor = "*"
 
 [dev-packages]
 black = "*"
+djlint = "*"
 flake8 = "*"
 isort = "*"
 

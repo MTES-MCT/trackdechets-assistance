@@ -1,44 +1,16 @@
-body {
-font-family: "Helvetica Neue", Arial, sans-serif;
+.pointer {
+cursor: pointer;
 }
 
-.block, .header {
-border: 1px solid #ccc;
-width: 50%;
-margin: 1rem auto;
-
-border-radius: 10px;
-}
-
-.header {
+.rnd {
 display: flex;
-padding: 1rem;
 align-items: center;
-}
-.header h1 {
-margin-left: 1rem;
-}
-
-.block__header {
-background-color: rgba(61, 100, 255, 0.6);
-border-radius: 10px 10px 0 0;
-padding: 1rem;
+justify-content: center;
+flex-shrink: 0;
+width: 2.25rem;
+height: 2.25rem;
+background-color: rgb(0, 0, 145);
 color: white;
-font-weight: bolder;
-}
-
-.block__content {
-padding: 0 1rem 1rem 1rem;
-}
-
-.block__link {
-cursor: pointer;
-}
-.block__button {
 border-radius: 50%;
-padding: 3px 5px;
-background-color: green;
-color: white;
-cursor: pointer;
-border: none;
+line-height: 1rem;
 }

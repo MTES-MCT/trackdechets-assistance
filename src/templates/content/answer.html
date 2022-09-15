@@ -1,22 +1,50 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Assistance Trackdéchets</title>
-    <link rel="stylesheet" href="{% static "css/normalize.css" %}">
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-</head>
-<body>
-
-<div class="header  ">
-    <a href="/"><img src="{% static "img/trackdechets.png" %}" width="70px" height="70px"></a>
-    <h1>Assistance Trackdéchets</h1>
-</div>
-<div hx-get="{% url "page" home_page_pk %}" class="block" id="block" hx-swap="outerHTML" hx-trigger="load">
-
-</div>
-
-<script src="{% static "js/htmlx.js" %}" defer></script>
-</body>
+<html lang="fr" data-fr-scheme="system">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="theme-color" content="#000091"/>
+        <title>Assistance Trackdéchets</title>
+        <link rel="stylesheet" href="{% static "css/style.css" %}"/>
+        <link rel="stylesheet" href="{% static "css/dsfr.min.css" %}"/>
+    </head>
+    <body>
+        <div class="fr-container">
+            <header role="banner" class="fr-header">
+                <div class="fr-header__body">
+                    <div class="fr-container">
+                        <div class="fr-header__body-row">
+                            <div class="fr-header__brand fr-enlarge-link">
+                                <div class="fr-header__brand-top">
+                                    <div class="fr-header__logo">
+                                        <p class="fr-logo">
+                                            Ministère
+                                            <br/>
+                                            de la transition
+                                            <br/>
+                                            écologique
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="fr-header__service">
+                                    <img src="{% static "img/trackdechets.png" %}" width="70px" height="70px"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="main fr-mt-4w">
+                <div class="fr-alert fr-alert--info"
+                     hx-get="{% url "page" home_page_pk %}"
+                     id="block"
+                     hx-swap="outerHTML"
+                     hx-trigger="load">
+                </div>
+            </main>
+        </div>
+        <script src="{% static "js/htmlx.js" %}" defer></script>
+    </body>
 </html>

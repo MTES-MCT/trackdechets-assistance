@@ -1,24 +1,38 @@
-<div id="block" class="block  ">
-    <div class="block__header">{{ object.title }}  </div>
-    <div class="block__content">
-        {{ object.markdown|safe }}
-        {% for link in object.links.all %}
-            <p>
-                {% if link.link.id %}
-                    <div hx-get="{% url  "page"  link.link.id %}" hx-target="#block" hx-swap="outerHTML"
-                         class="block__link">
-                        <button class="block__button">✓️</button>
-                        {{ link.text }}
-                    </div>
-                {% endif %}
-            </p>
-        {% endfor %}
-
-        {% if object.parents.count  %}
-            <div hx-get="{% url  "page"  object.parents.first.page.pk %}" hx-target="#block" hx-swap="outerHTML " class="block__link">
-                Retour
-            </div>
-
-        {% endif %}
-    </div>
+{% load martortags %}
+<div class="fr-alert fr-alert--info" id="block">
+    <h2 class="fr-alert__title fr-display--xs">{{ object.title }}</h2>
+    {% if object.markdown %}<div class=" fr-text--lg ">{{ object.text|safe_markdown }}</div>{% endif %}
+    {% for link in object.links.all %}
+        <p>
+            {% if link.target.id %}
+                <div hx-get="{% url "page" link.target.id %}"
+                     hx-target="#block"
+                     hx-swap="outerHTML"
+                     style="display: flex; align-items: center;  ">
+                    <span class="rnd">
+                        <svg focusable="false"
+                             aria-hidden="true"
+                             class="sp-icon sp-icon-arrow-right-line"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 24 24"
+                             width="24"
+                             height="24"
+                             fill="white">
+                            <path
+                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
+                        </svg>
+                    </span>
+                    <p class="pointer fr-text--xl fr-ml-1w">{{ link.text }}</p>
+                </div>
+            {% endif %}
+        </p>
+    {% endfor %}
+    {% if object.parents.count %}
+        <button class="fr-btn fr-mt-3w"
+                hx-get="{% url "page" object.parents.first.page.pk %}"
+                hx-target="#block"
+                hx-swap="outerHTML">
+            Retour
+        </button>
+    {% endif %}
 </div>
