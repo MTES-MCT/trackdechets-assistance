@@ -19,7 +19,7 @@
                              height="24"
                              fill="white">
                             <path
-                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z" />
+                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/>
                         </svg>
                     </span>
                     <p class="pointer fr-text--xl fr-ml-1w">{{ link.text }}</p>
@@ -27,11 +27,15 @@
             {% endif %}
         </p>
     {% endfor %}
+    {%  if object.is_leaf_node or True %}
+        <div hx-get="{% url "contact" %}" hx-trigger="load" hx-indicator="#loader">{% include "_loader.html" %}</div>
+    {% endif %}
     {% if object.parents.count %}
         <button class="fr-btn fr-mt-3w"
                 hx-get="{% url "page" object.parents.first.page.pk %}"
                 hx-target="#block"
-                hx-swap="outerHTML">
+                hx-swap="innerHTML"
+                hx-indicator="#loader">
             Retour
         </button>
     {% endif %}

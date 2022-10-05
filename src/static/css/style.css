@@ -14,3 +14,10 @@ color: white;
 border-radius: 50%;
 line-height: 1rem;
 }
+
+.contact-form{
+margin-top: 24px;
+padding: 12px;
+width: 60%;
+min-width: 300px;
+}
