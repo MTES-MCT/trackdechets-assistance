@@ -47,7 +47,7 @@ class ContactForm(forms.Form):
         ],
     )
 
-    captcha = MathCaptchaField()
+    captcha = MathCaptchaField(label="Anti robots")
 
     def clean_siret(self):
         siret = self.cleaned_data["siret"].replace(" ", "")

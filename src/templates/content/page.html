@@ -1,8 +1,8 @@
 {% load martortags %}
 <div class="fr-alert fr-alert--info" id="block">
-    <h2 class="fr-alert__title fr-display--xs">{{ object.title }}</h2>
-    {% if object.markdown %}<div class=" fr-text--lg ">{{ object.text|safe_markdown }}</div>{% endif %}
-    {% for link in object.links.all %}
+    <h2 class="fr-alert__title fr-display--xs">{{ page.title }}</h2>
+    {% if page.markdown %}<div class=" fr-text--lg ">{{ page.text|safe_markdown }}</div>{% endif %}
+    {% for link in page.links.all %}
         <p>
             {% if link.target.id %}
                 <div hx-get="{% url "page" link.target.id %}"
@@ -27,12 +27,22 @@
             {% endif %}
         </p>
     {% endfor %}
-    {% if object.is_leaf_node %}
+    {% if page.open_form %}
         <div hx-get="{% url "contact" %}" hx-trigger="load"></div>
     {% endif %}
-    {% if object.parents.count %}
+    {% if page.closed_form %}
+        <div id="form-wrapper" class=" fr-mt-4v">
+            <button hx-get="{% url "contact" %}"
+                    hx-trigger="click"
+                    hx-target="#form-wrapper"
+                    class="fr-btn">
+                Nous contacter
+            </button>
+        </div>
+    {% endif %}
+    {% if page.parents.count %}
         <button class="fr-btn fr-mt-3w"
-                hx-get="{% url "page" object.parents.first.page.pk %}"
+                hx-get="{% url "page" page.parents.first.page.pk %}"
                 hx-target="#block"
                 hx-swap="outerHTML">
             Retour
