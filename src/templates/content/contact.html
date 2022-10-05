@@ -1,12 +1,14 @@
 <div class="contact-form" id="contact-form">
     <h3>Contactez-nous</h3>
-    <p>Merci de resenigner au mieux les champs proposés pour accélérer le traitement de votre demande.</p>
-    <form hx-post="{% url "contact" %}" method="post" hx-trigger="submit" hx-target="#contact-form" hx-swap="outerHTML"
+    <p>Merci de renseigner au mieux les champs proposés pour accélérer le traitement de votre demande.</p>
+    <form hx-post="{% url "contact" %}"
+          method="post"
+          hx-trigger="submit"
+          hx-target="#contact-form"
+          hx-swap="outerHTML"
           hx-encoding='multipart/form-data'>
         {% csrf_token %}
-
         {% include '_form_snippet.html' with form=form %}
-
         <div class="fr-grid-row fr-grid-row--right fr-mt-1v">
             <button type="submit" class="fr-btn">Envoyer</button>
         </div>

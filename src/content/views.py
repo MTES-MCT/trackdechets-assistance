@@ -1,15 +1,15 @@
-from django.http import Http404
-from django.views.generic import DetailView, TemplateView, FormView
-
-from .models import Page
-from .forms import ContactForm
-from django.core.mail import EmailMessage
-from django.urls import reverse_lazy
 from django.conf import settings
+from django.core.mail import EmailMessage
+from django.http import Http404
+from django.urls import reverse_lazy
+from django.views.generic import DetailView, FormView, TemplateView
+
+from .forms import ContactForm
+from .models import Page
 
 
 class AnswerView(TemplateView):
-    template_name = "content/answer.html"
+    template_name = "content/wrapper.html"
 
     def get_context_data(self, **kwargs):
         home_page = Page.objects.order_by("level").first()
@@ -40,8 +40,8 @@ class ContactView(FormView):
 
         body = [
             f"Nom: {data['name']}",
-            f"Entreprise: {data['company']}",
-            f"Siret: {data['siret']}",
+            f"Entreprise: {data.get('company', 'Non renseigné')}",
+            f"Siret: {data.get('siret', 'Non renseigné')}",
             f"Message: {data['body']}",
         ]
         message = EmailMessage(
@@ -54,7 +54,6 @@ class ContactView(FormView):
         if self.request.FILES:
 
             for uploaded_file in self.request.FILES.getlist("files"):
-
                 message.attach(
                     uploaded_file.name, uploaded_file.read(), uploaded_file.content_type
                 )

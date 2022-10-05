@@ -1,11 +1,11 @@
 from django import forms
+from django.core.exceptions import ValidationError
+from django.core.validators import FileExtensionValidator
+from luhn import verify
+from multiupload.fields import MultiFileField
+from pyvat import is_vat_number_format_valid
 
 from .fields import MathCaptchaField
-from luhn import verify
-from django.core.exceptions import ValidationError
-from pyvat import is_vat_number_format_valid
-from django.core.validators import FileExtensionValidator
-from multiupload.fields import MultiFileField
 
 
 class ValidableMultiFileField(MultiFileField):

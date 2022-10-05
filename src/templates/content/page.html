@@ -27,15 +27,14 @@
             {% endif %}
         </p>
     {% endfor %}
-    {%  if object.is_leaf_node or True %}
-        <div hx-get="{% url "contact" %}" hx-trigger="load" hx-indicator="#loader">{% include "_loader.html" %}</div>
+    {% if object.is_leaf_node %}
+        <div hx-get="{% url "contact" %}" hx-trigger="load"></div>
     {% endif %}
     {% if object.parents.count %}
         <button class="fr-btn fr-mt-3w"
                 hx-get="{% url "page" object.parents.first.page.pk %}"
                 hx-target="#block"
-                hx-swap="innerHTML"
-                hx-indicator="#loader">
+                hx-swap="outerHTML">
             Retour
         </button>
     {% endif %}
