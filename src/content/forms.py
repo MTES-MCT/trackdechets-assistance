@@ -48,14 +48,7 @@ class ContactForm(forms.Form):
     captcha = MathCaptchaField(label="Anti robots")
 
     def clean_siret(self):
-        siret = self.cleaned_data["siret"].replace(" ", "")
+        siret = self.cleaned_data["siret"]
         if not siret:
             return ""
-        correct = True
-        if len(siret) != 14:
-            correct = False
-        if not correct:
-            raise ValidationError(
-                "Le numéro ne correspond ni à un siret ni à un numéro de TVA valide"
-            )
         return siret
