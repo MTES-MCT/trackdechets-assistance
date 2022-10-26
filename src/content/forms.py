@@ -1,9 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core.validators import FileExtensionValidator
-from luhn import verify
 from multiupload.fields import MultiFileField
-from pyvat import is_vat_number_format_valid
 
 from .fields import MathCaptchaField
 
@@ -55,10 +53,6 @@ class ContactForm(forms.Form):
             return ""
         correct = True
         if len(siret) != 14:
-            correct = False
-        if not verify(siret):
-            correct = False
-        if not is_vat_number_format_valid(siret):
             correct = False
         if not correct:
             raise ValidationError(
