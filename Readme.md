@@ -2,8 +2,8 @@
 
 **CMs pour l'assistance Trackdéchets**
 
-<img height="100px" style="margin-right: 20px" src="./src/static/img/trackdechets.png" alt="logo"></img>
-<img height="100px" src="./src/common_static/img/mtes-logo.svg" alt="logo"></img>
+<img height="100px" style="margin-right: 20px" src="./src/static/img/trackdechets.png" alt="Logo Trackdéchets"></img>
+<img height="100px" src="./src/common_static/img/marianne_mte.svg" alt="Logo MTES MCT"></img>
 
 # Introduction
 
