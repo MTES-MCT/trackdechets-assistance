@@ -16,8 +16,6 @@ django-mptt = "*"
 django-grappelli = "*"
 martor = "*"
 django-widget-tweaks = "*"
-luhn = "*"
-pyvat = "*"
 django-multiupload = "*"
 
 [dev-packages]

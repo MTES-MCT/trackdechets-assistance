@@ -1,5 +1,4 @@
 from django import forms
-from django.core.exceptions import ValidationError
 from django.core.validators import FileExtensionValidator
 from multiupload.fields import MultiFileField
 
@@ -46,9 +45,3 @@ class ContactForm(forms.Form):
     )
 
     captcha = MathCaptchaField(label="Anti robots")
-
-    def clean_siret(self):
-        siret = self.cleaned_data["siret"]
-        if not siret:
-            return ""
-        return siret
