@@ -1,16 +1,9 @@
 from django.contrib import admin
 from django.db import models
-from grappelli.forms import GrappelliSortableHiddenMixin
 from martor.widgets import AdminMartorWidget
 from mptt.admin import DraggableMPTTAdmin
 
-from .models import Link, Page
-
-
-class LinkInline(GrappelliSortableHiddenMixin, admin.TabularInline):
-    model = Link
-    fk_name = "page"
-    sortable_field_name = "position"
+from .models import Page
 
 
 @admin.register(Page)
@@ -18,13 +11,11 @@ class PageAdmin(DraggableMPTTAdmin):
     list_display = [
         "tree_actions",
         "indented_title",
-        "title",
+        "link_anchor",
         "linked_pages",
         "display_contact_form",
     ]
-    inlines = [
-        LinkInline,
-    ]
+
     list_display_links = ("indented_title",)
     formfield_overrides = {
         models.TextField: {"widget": AdminMartorWidget},

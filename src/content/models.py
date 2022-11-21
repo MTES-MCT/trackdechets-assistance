@@ -15,6 +15,12 @@ class Page(MPTTModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
 
     title = models.CharField(max_length=200)
+    link_anchor = models.CharField(
+        max_length=200,
+        blank=True,
+        verbose_name="Link Anchor",
+        help_text="Override Title to display as link",
+    )
     text = MartorField(blank=True)
 
     parent = TreeForeignKey(
@@ -34,6 +40,10 @@ class Page(MPTTModel):
     def __str__(self):
         return self.title
 
+    @property
+    def anchor(self):
+        return self.link_anchor or self.title
+
     def markdown(self):
         return markdown.markdown(self.text)
 
@@ -44,19 +54,3 @@ class Page(MPTTModel):
     @property
     def closed_form(self):
         return self.display_contact_form == self.ContactFormOptions.CLOSED
-
-
-class Link(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-
-    page = models.ForeignKey(Page, on_delete=models.CASCADE, related_name="links")
-    text = models.CharField(max_length=200)
-    target = models.ForeignKey(
-        Page, blank=True, null=True, on_delete=models.SET_NULL, related_name="parents"
-    )
-    position = models.PositiveSmallIntegerField("Position", null=True)
-
-    class Meta:
-        verbose_name = "Link"
-        verbose_name_plural = "Links"
-        ordering = ["position"]

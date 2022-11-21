@@ -1,14 +1,15 @@
 {% load martortags %}
 <div class="fr-alert fr-alert--info" id="block">
     <h2 class="fr-alert__title fr-display--xs">{{ page.title }}</h2>
-    {% if page.markdown %}<div class=" fr-text--lg ">{{ page.text|safe_markdown }}</div>{% endif %}
-    {% for link in page.links.all %}
-        <p>
-            {% if link.target.id %}
-                <div hx-get="{% url "page" link.target.id %}"
-                     hx-target="#block"
-                     hx-swap="outerHTML"
-                     style="display: flex; align-items: center;  ">
+    {% if page.markdown %}
+        <div class=" fr-text--lg ">{{ page.text|safe_markdown }}</div>{% endif %}
+
+
+    {% for child in page.get_children.all %}
+        <div hx-get="{% url "page" child.id %}"
+             hx-target="#block"
+             hx-swap="outerHTML"
+             style="display: flex; align-items: center;  ">
                     <span class="rnd">
                         <svg focusable="false"
                              aria-hidden="true"
@@ -19,14 +20,14 @@
                              height="24"
                              fill="white">
                             <path
-                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/>
+                                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/>
                         </svg>
                     </span>
-                    <p class="pointer fr-text--xl fr-ml-1w">{{ link.text }}</p>
-                </div>
-            {% endif %}
-        </p>
+            <p class="pointer fr-text--xl fr-ml-1w">{{ child.anchor }}</p>
+        </div>
     {% endfor %}
+
+
     {% if page.open_form %}
         <div hx-get="{% url "contact" %}" hx-trigger="load"></div>
     {% endif %}
@@ -40,9 +41,9 @@
             </button>
         </div>
     {% endif %}
-    {% if page.parents.count %}
+    {% if page.parent %}
         <button class="fr-btn fr-mt-3w"
-                hx-get="{% url "page" page.parents.first.page.pk %}"
+                hx-get="{% url "page" page.parent.pk %}"
                 hx-target="#block"
                 hx-swap="outerHTML">
             Retour
