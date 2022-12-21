@@ -17,6 +17,7 @@ django-grappelli = "*"
 martor = "*"
 django-widget-tweaks = "*"
 django-multiupload = "*"
+django-request = "*"
 
 [dev-packages]
 black = "*"

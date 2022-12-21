@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "widget_tweaks",
     "mptt",
     "martor",
+    "request",
     "accounts",
     "content",
 ]
@@ -44,6 +45,7 @@ MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "request.middleware.RequestMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
 ]
 
@@ -146,3 +148,6 @@ MARTOR_TOOLBAR_BUTTONS = [
     "toggle-maximize",
     "help",
 ]
+
+
+REQUEST_IGNORE_PATHS = (r"^settings.ADMIN_SLUG/",)
