@@ -18,6 +18,9 @@ martor = "*"
 django-widget-tweaks = "*"
 django-multiupload = "*"
 django-request = "*"
+icalendar = "*"
+django-ical = "*"
+django-hosts = "*"
 
 [dev-packages]
 black = "*"

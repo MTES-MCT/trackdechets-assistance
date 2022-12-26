@@ -29,16 +29,20 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
     "django.forms",
+    "django_hosts",
     "widget_tweaks",
     "mptt",
     "martor",
     "request",
     "accounts",
     "content",
+    "webinars",
 ]
 
 MIDDLEWARE = [
+    "django_hosts.middleware.HostsRequestMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -47,9 +51,15 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "request.middleware.RequestMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "django_hosts.middleware.HostsResponseMiddleware",
 ]
 
-ROOT_URLCONF = "config.urls"
+ROOT_HOSTCONF = "config.hosts"
+DEFAULT_HOST = "assistance_hosts"
+PARENT_HOST = "td.test"
+
+ROOT_URLCONF = "content.assistance_urls"
+
 
 TEMPLATES = [
     {
@@ -124,6 +134,8 @@ AUTH_USER_MODEL = "accounts.User"
 
 ADMIN_SLUG = env("ADMIN_SLUG")
 
+SITE_ID = 1
+
 MARTOR_ENABLE_CONFIGS = {
     "emoji": "true",  # to enable/disable emoji icons.
     "imgur": "false",  # to enable/disable imgur/custom uploader.
@@ -148,6 +160,5 @@ MARTOR_TOOLBAR_BUTTONS = [
     "toggle-maximize",
     "help",
 ]
-
 
 REQUEST_IGNORE_PATHS = (r"^settings.ADMIN_SLUG/",)

@@ -1,33 +1,28 @@
 {% load martortags %}
 <div class="fr-alert fr-alert--info" id="block">
     <h2 class="fr-alert__title fr-display--xs">{{ page.title }}</h2>
-    {% if page.markdown %}
-        <div class=" fr-text--lg ">{{ page.text|safe_markdown }}</div>{% endif %}
-
-
+    {% if page.markdown %}<div class=" fr-text--lg ">{{ page.text|safe_markdown }}</div>{% endif %}
     {% for child in page.get_children.all %}
         <div hx-get="{% url "page" child.id %}"
              hx-target="#block"
              hx-swap="outerHTML"
              style="display: flex; align-items: center;  ">
-                    <span class="rnd">
-                        <svg focusable="false"
-                             aria-hidden="true"
-                             class="sp-icon sp-icon-arrow-right-line"
-                             xmlns="http://www.w3.org/2000/svg"
-                             viewBox="0 0 24 24"
-                             width="24"
-                             height="24"
-                             fill="white">
-                            <path
-                                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/>
-                        </svg>
-                    </span>
+            <span class="rnd">
+                <svg focusable="false"
+                     aria-hidden="true"
+                     class="sp-icon sp-icon-arrow-right-line"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 24 24"
+                     width="24"
+                     height="24"
+                     fill="white">
+                    <path
+                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/>
+                </svg>
+            </span>
             <p class="pointer fr-text--xl fr-ml-1w">{{ child.anchor }}</p>
         </div>
     {% endfor %}
-
-
     {% if page.open_form %}
         <div hx-get="{% url "contact" %}" hx-trigger="load"></div>
     {% endif %}

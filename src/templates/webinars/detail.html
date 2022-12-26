@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+    <main class="main fr-mt-4w">
+        <p>
+            Accéder à  <a href="{%  url "webinar_list" %}">toutes nos formations</a>
+        </p>
+        {% include "webinars/_webinar.html" %}
+    </main>
+{% endblock %}
