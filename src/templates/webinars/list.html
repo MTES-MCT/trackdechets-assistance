@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block main %}
+    <main class="main fr-mt-4w">
+        <h1>Prochaines formations Trackdéchets</h1>
+        <p>
+            Vous pouvez assister librement à nos formations pour mieux connaître Trackcdéchets,
+            participer à des sessions de questions/réponses,ou en apprendre d'avantage sur une fonctionalité
+            spécifique.
+        </p>
+        {% for webinar in webinars %}
+            {% include "webinars/_webinar.html" %}
+        {% endfor %}
+        {% if past_webinars %}
+            <h2 class="past_webinars__title">Nos Formations précédentes</h2>
+            <p>
+                Retrouvez nos dernières formations sur notre <a href="https://www.youtube.com/@Trackdechets">chaîne
+            youtube</a>
+        </p>
+    {% endif %}
+    {% for webinar in past_webinars %}
+        {% include "webinars/_webinar.html" %}
+    {% endfor %}
+</main>
+{% endblock %}
