@@ -60,7 +60,6 @@ PARENT_HOST = "td.test"
 
 ROOT_URLCONF = "content.assistance_urls"
 
-
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -161,4 +160,4 @@ MARTOR_TOOLBAR_BUTTONS = [
     "help",
 ]
 
-REQUEST_IGNORE_PATHS = (r"^settings.ADMIN_SLUG/",)
+REQUEST_IGNORE_PATHS = (rf"^{ADMIN_SLUG}/",)
