@@ -31,7 +31,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "django.forms",
+    "corsheaders",
     "django_hosts",
+    "rest_framework",
     "widget_tweaks",
     "mptt",
     "martor",
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django_hosts.middleware.HostsRequestMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -161,3 +164,12 @@ MARTOR_TOOLBAR_BUTTONS = [
 ]
 
 REQUEST_IGNORE_PATHS = (rf"^{ADMIN_SLUG}/",)
+
+REST_FRAMEWORK = {
+    "DEFAULT_RENDERER_CLASSES": [
+        "rest_framework.renderers.JSONRenderer",
+    ]
+}
+
+
+CORS_ALLOW_ALL_ORIGINS = True

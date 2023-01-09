@@ -1,3 +1,4 @@
+from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponse
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
@@ -16,7 +17,10 @@ class WebinarList(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         return super().get_context_data(
-            object_list=object_list, **kwargs, past_webinars=self.get_past_webinars()
+            object_list=object_list,
+            **kwargs,
+            past_webinars=self.get_past_webinars(),
+            current_site=get_current_site(self.request),
         )
 
 

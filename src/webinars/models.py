@@ -25,7 +25,6 @@ class WebinarQuerySet(models.QuerySet):
 
     def future(self):
         now = timezone.now()
-
         return self.visible().filter(scheduled_at__date__gte=now.date())
 
     def past(self):
