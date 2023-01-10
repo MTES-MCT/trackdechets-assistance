@@ -17,5 +17,5 @@ class WebinarSerializer(serializers.ModelSerializer):
 
 
 class Webinars(ListAPIView):
-    queryset = Webinar.objects.future()
+    queryset = Webinar.objects.future().order_by("scheduled_at")
     serializer_class = WebinarSerializer
