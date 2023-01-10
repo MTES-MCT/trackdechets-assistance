@@ -1,12 +1,17 @@
+from zoneinfo import ZoneInfo
+
 from django.urls import reverse
 from rest_framework import serializers
 from rest_framework.generics import ListAPIView
 
 from .models import Webinar
 
+local_tz = ZoneInfo("Europe/Paris")
+
 
 class WebinarSerializer(serializers.ModelSerializer):
     ics = serializers.SerializerMethodField()
+    scheduled_at = serializers.DateTimeField(default_timezone=local_tz)
 
     class Meta:
         model = Webinar

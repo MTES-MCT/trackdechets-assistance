@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "fr-FR"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Paris"
 
 USE_I18N = True
 
@@ -136,7 +136,6 @@ AUTH_USER_MODEL = "accounts.User"
 
 ADMIN_SLUG = env("ADMIN_SLUG")
 
-SITE_ID = 1
 
 MARTOR_ENABLE_CONFIGS = {
     "emoji": "true",  # to enable/disable emoji icons.
@@ -173,3 +172,6 @@ REST_FRAMEWORK = {
 
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+WEBINARS_DOMAIN = env("WEBINARS_DOMAIN")

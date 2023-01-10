@@ -1,10 +1,14 @@
-from django.contrib.sites.shortcuts import get_current_site
+from zoneinfo import ZoneInfo
+
+from django.conf import settings
 from django.http import HttpResponse
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
 from django_ical.views import ICalFeed
 
 from .models import Webinar
+
+local_tz = ZoneInfo("Europe/Paris")
 
 
 class WebinarList(ListView):
@@ -20,7 +24,7 @@ class WebinarList(ListView):
             object_list=object_list,
             **kwargs,
             past_webinars=self.get_past_webinars(),
-            current_site=get_current_site(self.request),
+            current_site=settings.WEBINARS_DOMAIN,
         )
 
 
@@ -39,7 +43,7 @@ def event(request, pk):
 
 class WebinarFeed(ICalFeed):
     product_id = "-//example.com//Example//EN"
-    timezone = "UTC"
+    timezone = "Europe/Paris"
     file_name = "trackdechets_webinars.ics"
 
     def items(self):

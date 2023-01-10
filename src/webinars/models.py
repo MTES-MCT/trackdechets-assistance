@@ -1,15 +1,14 @@
 import datetime as dt
 import uuid
 
-from django.contrib.sites.models import Site
+from django.conf import settings
 from django.db import models
 from django.db.models import ExpressionWrapper, F
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.functional import cached_property
 from django.utils.text import slugify
 from icalendar import Calendar, Event
-
-current_site = Site.objects.get_current()
 
 
 class WebinarQuerySet(models.QuerySet):
@@ -66,12 +65,15 @@ class Webinar(models.Model):
     def ends_at(self):
         return self.scheduled_at + dt.timedelta(minutes=self.duration)
 
+    @cached_property
+    def site_uid(self):
+        domain = settings.WEBINARS_DOMAIN.split(".")
+        domain.reverse()
+        return ".".join(domain)
+
     @property
     def uid(self):
-        site_uid = current_site.domain.split(".")
-        site_uid.reverse()
-        site_uid = ".".join(site_uid)
-        return f"{self.id}.event.events.{site_uid}"
+        return f"{self.id}.event.events.{self.site_uid}"
 
     @property
     def display_after(self):
@@ -89,8 +91,10 @@ class Webinar(models.Model):
         ical_event.add("dtend", self.ends_at)
         ical_event.add("uid", self.uid)
         ical_event.add("dtstamp", self.ends_at)
-        if self.visio_link:
-            ical_event.add("url", self.visio_link)
+
+        ical_event.add(
+            "url", f"https://{settings.WEBINARS_DOMAIN}{self.get_absolute_url()}"
+        )
         cal.add_component(ical_event)
 
         return cal.to_ical()
