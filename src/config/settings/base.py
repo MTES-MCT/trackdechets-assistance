@@ -136,7 +136,6 @@ AUTH_USER_MODEL = "accounts.User"
 
 ADMIN_SLUG = env("ADMIN_SLUG")
 
-
 MARTOR_ENABLE_CONFIGS = {
     "emoji": "true",  # to enable/disable emoji icons.
     "imgur": "false",  # to enable/disable imgur/custom uploader.
@@ -170,8 +169,8 @@ REST_FRAMEWORK = {
     ]
 }
 
-
 CORS_ALLOW_ALL_ORIGINS = True
 
-
 WEBINARS_DOMAIN = env("WEBINARS_DOMAIN")
+
+GRAPPELLI_ADMIN_TITLE = "Trackdéchets assistance"

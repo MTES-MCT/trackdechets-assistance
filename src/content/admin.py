@@ -5,7 +5,7 @@ from mptt.admin import DraggableMPTTAdmin
 from request.admin import RequestAdmin
 from request.models import Request
 
-from .models import Page
+from .models import Message, Page
 
 admin.site.unregister(Request)
 
@@ -28,3 +28,10 @@ class PageAdmin(DraggableMPTTAdmin):
 class CustomRequestAdmin(RequestAdmin):
     list_filter = ("path",)
     search_fields = ("path",)
+
+
+@admin.register(Message)
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ["origin_page_title", "created", "subject"]
+    list_filter = ("created", "origin_page_title")
+    search_fields = ("siret", "username", "email", "origin_page_title", "company")

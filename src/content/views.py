@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import DetailView, FormView, TemplateView
 
 from .forms import ContactForm
-from .models import Page
+from .models import Message, Page
 
 
 class AnswerView(TemplateView):
@@ -29,6 +29,11 @@ class PageView(DetailView):
         ctx.update({"form": form})
         return ctx
 
+    def render_to_response(self, context, **response_kwargs):
+        response = super().render_to_response(context, **response_kwargs)
+        response.set_cookie("assistance_page", self.object.pk)
+        return response
+
 
 class ContactView(FormView):
     form_class = ContactForm
@@ -36,19 +41,33 @@ class ContactView(FormView):
     template_name = "content/contact.html"
 
     def form_valid(self, form):
+        assistance_page_title = ""
+        assistance_page_id = ""
+        assistance_page_cookie_id = self.request.COOKIES.get("assistance_page", None)
+        if assistance_page_cookie_id:
+            assistance_page = Page.objects.filter(id=assistance_page_cookie_id).first()
+            assistance_page_title = assistance_page.title
+            assistance_page_id = assistance_page_cookie_id
         res = super().form_valid(form)
         data = form.cleaned_data
 
+        username = data["name"]
+        user_email = data["email"]
+        company = data.get("company", "Non renseigné")
+        siret = data.get("siret", "Non renseigné")
+        body = data["body"]
+        subject = data["subject"]
         body = [
-            f"Nom: {data['name']}",
-            f"Entreprise: {data.get('company', 'Non renseigné')}",
-            f"Siret: {data.get('siret', 'Non renseigné')}",
-            f"Message: {data['body']}",
+            f"Nom: {username}",
+            f"Entreprise: {company}",
+            f"Siret: {siret}",
+            f"Page d'origine: {assistance_page_title}",
+            f"Message: {body}",
         ]
         message = EmailMessage(
-            subject=form.cleaned_data["subject"],
+            subject=subject,
             body="\n\n".join(body),
-            from_email=form.cleaned_data["email"],
+            from_email=user_email,
             to=[settings.MESSAGE_RECIPIENT],
         )
 
@@ -60,8 +79,26 @@ class ContactView(FormView):
                 )
 
         message.send()
-
+        Message.objects.create(
+            username=username,
+            email=user_email,
+            company=company,
+            siret=siret,
+            subject=subject,
+            message=body,
+            origin_page_title=assistance_page_title,
+            origin_page_id=assistance_page_id,
+            ip=self.get_client_ip(),
+        )
         return res
+
+    def get_client_ip(self):
+        x_forwarded_for = self.request.META.get("HTTP_X_FORWARDED_FOR")
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(",")[0]
+        else:
+            ip = self.request.META.get("REMOTE_ADDR")
+        return ip
 
 
 class MessageSentView(TemplateView):
