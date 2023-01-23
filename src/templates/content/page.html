@@ -24,11 +24,11 @@
         </div>
     {% endfor %}
     {% if page.open_form %}
-        <div hx-get="{% url "contact" %}" hx-trigger="load"></div>
+        <div hx-get="{% url "contact" %}?page={{ page.id }}" hx-trigger="load"></div>
     {% endif %}
     {% if page.closed_form %}
-        <div id="form-wrapper" class=" fr-mt-4v">
-            <button hx-get="{% url "contact" %}"
+        <div id="form-wrapper" class="fr-mt-4v">
+            <button hx-get="{% url "contact" %}?page={{ page.id }}"
                     hx-trigger="click"
                     hx-target="#form-wrapper"
                     class="fr-btn">
