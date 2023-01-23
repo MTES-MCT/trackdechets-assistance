@@ -8,7 +8,6 @@
             participer à des sessions de questions/réponses,ou en apprendre d'avantage sur une fonctionalité
             spécifique.
         </p>
-
         {% for webinar in webinars %}
             {% include "webinars/_webinar.html" %}
         {% endfor %}
@@ -16,21 +15,23 @@
             <h2 class="past_webinars__title">Nos Formations précédentes</h2>
             <p>
                 Retrouvez nos dernières formations sur notre <a href="https://www.youtube.com/@Trackdechets">chaîne
-                youtube</a>
-            </p>
-        {% endif %}
-        {% for webinar in past_webinars %}
-            {% include "webinars/_webinar.html" %}
-        {% endfor %}
-
-    <p class="fr-mt-3w">Pour vous abonner à notre flux iCal de formations dans votre agenda, copiez le lien
-        https://{{ current_site }}{% url "webinar_feed" %} dans votre calendrier.</p>
-        <p>Avec <a target="_blank"
-                    href="https://support.microsoft.com/fr-fr/office/importer-un-calendrier-ou-s-y-abonner-dans-outlook-com-cff1429c-5af6-41ec-a5b4-74f2c278e98c">Outlook</a>
-
+            youtube</a>
         </p>
-    <p>Avec <a target="_blank" href="https://support.apple.com/fr-fr/guide/calendar/icl1022/mac">Calendrier (Mac)</a> </p>
-    </main>
+    {% endif %}
+    {% for webinar in past_webinars %}
+        {% include "webinars/_webinar.html" %}
+    {% endfor %}
+    <p class="fr-mt-3w">
+        Pour vous abonner à notre flux iCal de formations dans votre agenda, copiez le lien
+        https://{{ current_site }}{% url "webinar_feed" %} dans votre calendrier.
+    </p>
+    <p>
+        Avec <a target="_blank"
+    href="https://support.microsoft.com/fr-fr/office/importer-un-calendrier-ou-s-y-abonner-dans-outlook-com-cff1429c-5af6-41ec-a5b4-74f2c278e98c">Outlook</a>
+    </p>
+    <p>
+        Avec <a target="_blank"
+    href="https://support.apple.com/fr-fr/guide/calendar/icl1022/mac">Calendrier (Mac)</a>
+    </p>
+</main>
 {% endblock %}
-
-
