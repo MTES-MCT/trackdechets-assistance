@@ -7,6 +7,8 @@ from django.views.generic import DetailView, FormView, TemplateView
 from .forms import ContactForm
 from .models import Message, Page
 
+PAGE_COOKIE_NAME = "assistance_page"
+
 
 class AnswerView(TemplateView):
     template_name = "content/wrapper.html"
@@ -31,7 +33,8 @@ class PageView(DetailView):
 
     def render_to_response(self, context, **response_kwargs):
         response = super().render_to_response(context, **response_kwargs)
-        response.set_cookie("assistance_page", self.object.pk)
+        # set cookie on each page, used by the contact form page
+        response.set_cookie(PAGE_COOKIE_NAME, self.object.pk)
         return response
 
 
@@ -43,7 +46,8 @@ class ContactView(FormView):
     def form_valid(self, form):
         assistance_page_title = ""
         assistance_page_id = ""
-        assistance_page_cookie_id = self.request.COOKIES.get("assistance_page", None)
+        # get cookie to know where the message is sent from
+        assistance_page_cookie_id = self.request.COOKIES.get(PAGE_COOKIE_NAME, None)
         if assistance_page_cookie_id:
             assistance_page = Page.objects.filter(id=assistance_page_cookie_id).first()
             assistance_page_title = assistance_page.title
@@ -55,14 +59,14 @@ class ContactView(FormView):
         user_email = data["email"]
         company = data.get("company", "Non renseigné")
         siret = data.get("siret", "Non renseigné")
-        body = data["body"]
+        body_content = data["body"]
         subject = data["subject"]
         body = [
             f"Nom: {username}",
             f"Entreprise: {company}",
             f"Siret: {siret}",
             f"Page d'origine: {assistance_page_title}",
-            f"Message: {body}",
+            f"Message: {body_content}",
         ]
         message = EmailMessage(
             subject=subject,
@@ -79,13 +83,14 @@ class ContactView(FormView):
                 )
 
         message.send()
+        # Save message data
         Message.objects.create(
             username=username,
             email=user_email,
             company=company,
             siret=siret,
             subject=subject,
-            message=body,
+            message=body_content,
             origin_page_title=assistance_page_title,
             origin_page_id=assistance_page_id,
             ip=self.get_client_ip(),
