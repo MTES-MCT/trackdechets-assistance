@@ -15,6 +15,12 @@ border-radius: 50%;
 line-height: 1rem;
 }
 
+.question-block {
+display: flex;
+align-items: center;
+margin-bottom: 8px;
+}
+
 .contact-form {
 margin-top: 24px;
 padding: 12px;

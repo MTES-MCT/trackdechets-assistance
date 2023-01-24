@@ -29,8 +29,8 @@
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
-        <div class="fr-container">
-            <header role="banner" class="fr-header">
+        <header role="banner" class="fr-header">
+            <div class="fr-container">
                 <div class="fr-header__body">
                     <div class="fr-container">
                         <div class="fr-header__body-row">
@@ -55,9 +55,12 @@
                         </div>
                     </div>
                 </div>
-            </header>
+            </div>
+        </header>
+        <div class="fr-container">
             {% block main %}{% endblock %}
         </div>
-        {% block scripts %}{% endblock %}
-    </body>
+    </div>
+    {% block scripts %}{% endblock %}
+</body>
 </html>
