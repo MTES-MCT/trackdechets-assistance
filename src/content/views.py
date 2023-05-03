@@ -57,13 +57,13 @@ class ContactView(FormView):
 
         username = data["name"]
         user_email = data["email"]
-        company = data.get("company", "Non renseigné")
+        bsds = data.get("bsds", "Non renseigné")
         siret = data.get("siret", "Non renseigné")
         body_content = data["body"]
         subject = data["subject"]
         body = [
             f"Nom: {username}",
-            f"Entreprise: {company}",
+            f"Bordereau(x): {bsds}",
             f"Siret: {siret}",
             f"Page d'origine: {assistance_page_title}",
             f"Message: {body_content}",
@@ -87,7 +87,7 @@ class ContactView(FormView):
         Message.objects.create(
             username=username,
             email=user_email,
-            company=company,
+            bsds=bsds,
             siret=siret,
             subject=subject,
             message=body_content,

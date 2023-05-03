@@ -16,11 +16,12 @@ class ValidableMultiFileField(MultiFileField):
 class ContactForm(forms.Form):
     name = forms.CharField(label="Nom", min_length=3, max_length=100)
     email = forms.EmailField(label="Email")
-    company = forms.CharField(
-        label="Entreprise/Collectivité/Structure",
+    bsds = forms.CharField(
+        label="Numéro(s) de Bordereau(x) concerné(s)",
         required=False,
-        min_length=3,
-        max_length=100,
+        widget=forms.Textarea(attrs={"cols": "40", "rows": "2"}),
+        min_length=8,
+        max_length=300,
     )
     siret = forms.CharField(
         label="SIRET (ou nº TVA intracomm. pour les entreprises étrangères)",

@@ -65,6 +65,7 @@ class Message(models.Model):
     company = models.CharField(
         "Établissement de l'utilisateur", max_length=250, blank=True
     )
+    bsds = models.CharField("Bsds", max_length=300, blank=True)
     siret = models.EmailField("Siret de l'utilisateur", max_length=250, blank=True)
     subject = models.TextField("Objet du message", blank=True)
     message = models.TextField("Message", blank=True)
