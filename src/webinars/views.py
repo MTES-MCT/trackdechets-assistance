@@ -12,9 +12,12 @@ local_tz = ZoneInfo("Europe/Paris")
 
 
 class WebinarList(ListView):
-    queryset = Webinar.objects.future().order_by("scheduled_at")
+    queryset = Webinar
     template_name = "webinars/list.html"
     context_object_name = "webinars"
+
+    def get_queryset(self):
+        return Webinar.objects.future().order_by("scheduled_at")
 
     def get_past_webinars(self):
         return Webinar.objects.past()
