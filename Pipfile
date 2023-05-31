@@ -21,7 +21,6 @@ django-request = "*"
 icalendar = "*"
 django-ical = "*"
 django-hosts = "*"
-graphene-django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 
