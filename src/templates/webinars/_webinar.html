@@ -1,14 +1,17 @@
 <div class="webinar">
-    <div class="webinar__date">
-        <span class="webinar__dow">{{ webinar.scheduled_at|date:"D"|upper }}</span>
-        <span class="webinar__dom">{{ webinar.scheduled_at|date:"d" }}</span>
-        <span class="webinar__month_year">{{ webinar.scheduled_at|date:"M Y"|upper }}</span>
+    <div class="webinar__info">
+        <div class="webinar__date">
+            <span class="webinar__dow">{{ webinar.scheduled_at|date:"D"|upper }}</span>
+            <span class="webinar__dom">{{ webinar.scheduled_at|date:"d" }}</span>
+            <span class="webinar__month_year">{{ webinar.scheduled_at|date:"M Y"|upper }}</span>
+        </div>
+        <span class="webinar__hour">{{ webinar.scheduled_at|date:"H:i" }}</span>
+        <span class="webinar__title">{{ webinar.title }}</span>
     </div>
-    <span class="webinar__hour">{{ webinar.scheduled_at|date:"H:i" }}</span>
-    <span class="webinar__title">{{ webinar.title }}</span>
     {% if webinar.is_future %}
         <span class="webinar__cal ">
-            {% if webinar.visio_link %}<a href="{{ webinar.visio_link }}" class="webinar__visio ">Participer</a>{% endif %}
+            {% if webinar.visio_link %}
+                <a href="{{ webinar.visio_link }}" class="webinar__visio ">Participer</a>{% endif %}
             <a href="{% url "webinar_ics" webinar.pk %}" class=" fr-btn ">Ajouter à mon calendrier</a>
         </span>
     {% endif %}
