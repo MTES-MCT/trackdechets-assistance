@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = ">=4.1.9"
+django = "==4.*"
 django-environ = "*"
 whitenoise = "*"
 gunicorn = "*"
@@ -25,10 +25,9 @@ djangorestframework = "*"
 django-cors-headers = "*"
 
 [dev-packages]
-black = "*"
 djlint = "*"
-flake8 = "*"
+ruff = "*"
 isort = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.11"
