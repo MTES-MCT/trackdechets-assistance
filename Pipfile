@@ -23,6 +23,10 @@ django-ical = "*"
 django-hosts = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
+httpx = "*"
+django-template-partials = "*"
+sib-api-v3-sdk = "*"
+django-simple-math-captcha = "*"
 
 [dev-packages]
 djlint = "*"

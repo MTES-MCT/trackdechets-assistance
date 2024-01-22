@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     "widget_tweaks",
     "mptt",
     "martor",
+    "template_partials",
     "request",
     "accounts",
     "content",
     "webinars",
+    "website",
 ]
 
 MIDDLEWARE = [
@@ -59,7 +61,7 @@ MIDDLEWARE = [
 
 ROOT_HOSTCONF = "config.hosts"
 DEFAULT_HOST = "assistance_hosts"
-PARENT_HOST = "td.test"
+PARENT_HOST = "track.test"
 
 ROOT_URLCONF = "content.assistance_urls"
 
@@ -168,9 +170,13 @@ REST_FRAMEWORK = {
         "rest_framework.renderers.JSONRenderer",
     ]
 }
-
+USE_THOUSAND_SEPARATOR = True
 CORS_ALLOW_ALL_ORIGINS = True
 
 WEBINARS_DOMAIN = env("WEBINARS_DOMAIN")
 
 GRAPPELLI_ADMIN_TITLE = "Trackdéchets assistance"
+
+BREVO_GENERAL_NEWSLETTER_ID = env.int("BREVO_GENERAL_NEWSLETTER_ID")
+BREVO_TECH_NEWSLETTER_ID = env.int("BREVO_TECH_NEWSLETTER_ID")
+BREVO_API_KEY = env("BREVO_API_KEY")

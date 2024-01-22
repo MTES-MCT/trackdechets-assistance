@@ -9,17 +9,17 @@
                 {{ field }}
                 <label class="fr-label" for="{{ field.id }}">
                     {{ field.label }}
-                    {%  if not field.field.required %}(non requis){% endif %}
+                    {% if not field.field.required %}(non requis){% endif %}
                 </label>
             </div>
         {% elif field|is_file_input %}
             <div class="fr-upload-group">
                 <label class="fr-label" for="file-upload">
                     {{ field.label }}
-                    {%  if not field.field.required %}(non requis){% endif %}
+                    {% if not field.field.required %}(non requis){% endif %}
                     <span class="fr-hint-text">Taille maximale : 2.5 Mo. Formats supportés : jpg, png, pdf, xls, doc.</span>
                 </label>
-                {{ field|add_class:"fr-upload"  }}
+                {{ field|add_class:"fr-upload" }}
             </div>
         {% else %}
             <label for="{{ field.id }}" class="fr-label">

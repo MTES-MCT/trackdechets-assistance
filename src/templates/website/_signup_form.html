@@ -1,0 +1,54 @@
+{% load hosts %}
+<form action="{% host_url "tech_signup" variant host 'website_hosts' %}"
+      hx-target="#{{ variant }}-signup"
+      hx-post="{% host_url "tech_signup" variant host 'website_hosts' %}"
+      method="post">
+    {% csrf_token %}
+    <div class="fr-input-group">
+        <label class="fr-label" for="{{ variant }}-newsletter-email">Votre adresse électronique (ex. : nom@domaine.fr)</label>
+        <div class="fr-input-wrap fr-input-wrap--addon">
+            <input aria-describedby="newsletter-email-hint-text newsletter-email-messages"
+                   autocomplete="off"
+                   class="fr-input"
+                   id="{{ variant }}-newsletter-email"
+                   name="email"
+                   placeholder="Votre adresse électronique (ex. : nom@domaine.fr)"
+                   title="Votre adresse électronique (ex. : nom@domaine.fr)"
+                   type="email">
+            {#  honeypot #}
+            <div style="height: 0; width: 0; overflow: hidden">
+                <p>Anti-pourriel ne pas remplir le champ suivant</p>
+                <label for="{{ variant }}-id_name">Votre nom</label>
+                <input type="text"
+                       id="{{ variant }}-id_name"
+                       name="name"
+                       tabindex="-1"
+                       autocomplete="off" />
+            </div>
+            {# end  honeypot #}
+            <button class="fr-btn"
+                    id="{{ variant }}-newsletter-button"
+                    title="S‘abonner à notre lettre d’information"
+                    type="submit">S'abonner</button>
+        </div>
+        <div aria-live="assertive"
+             class="fr-messages-group"
+             id="{{ variant }}-newsletter-email-messages">
+            {% if success is True %}
+                <div class="fr-mb-6v fr-alert fr-alert--success fr-alert--sm">
+                    <p>Votre inscription a bien été prise en compte.</p>
+                </div>
+            {% endif %}
+            {% if success is False %}
+                <div class="fr-mb-6v fr-alert fr-alert--error fr-alert--sm">
+                    <p>Votre inscription a échoué, merci d'essayer à nouveau dans quelques instants</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <p class="fr-hint-text" id="{{ variant }}-newsletter-email-hint-text">
+        En renseignant votre adresse
+        électronique, vous acceptez de recevoir nos actualités par courriel. Vous pouvez vous
+        désinscrire à tout moment à l’aide des liens de désinscription ou en nous contactant.
+    </p>
+</form>

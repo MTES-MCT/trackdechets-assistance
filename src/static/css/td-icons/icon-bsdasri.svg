@@ -1,0 +1,62 @@
+  <svg
+      width="33"
+      height="38"
+      viewBox="0 0 33 38"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      focusable="false"
+
+    >
+      <g clipPath="url(#clip0_130_10898)">
+        <path
+          d="M16.5 31.6666V38"
+          stroke="black"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M10.9583 1.58325H22.0417"
+          stroke="black"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M10.9583 14.2499H15.7083"
+          stroke="black"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M10.9583 20.5833H15.7083"
+          stroke="black"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M10.9583 9.49988V25.3332V25.3332C10.7546 28.6074 13.2278 31.4339 16.5 31.6665H16.5C19.7714 31.4322 22.2437 28.6068 22.0417 25.3332V9.49988H10.9583Z"
+          stroke="black"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M18.875 1.58325H14.1266V9.49992H18.875V1.58325Z"
+          stroke="black"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M6.20834 9.49988H26.7917"
+          stroke="black"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath>
+          <rect width="33" height="38" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>

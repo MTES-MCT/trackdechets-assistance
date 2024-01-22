@@ -1,0 +1,142 @@
+/*icons*/
+.fr-icon-bsdd::before,
+.fr-icon-bsdd::after {
+  background-image: url("./td-icons/icon-bsdd.svg");
+  -webkit-mask-image: url("./td-icons/icon-bsdd.svg");
+  mask-image: url("./td-icons/icon-bsdd.svg");
+}
+
+.fr-icon-bsda::before,
+.fr-icon-bsda::after {
+  background-image: url("./td-icons/icon-bsda.svg");
+  -webkit-mask-image: url("./td-icons/icon-bsda.svg");
+  mask-image: url("./td-icons/icon-bsda.svg");
+}
+
+.fr-icon-bsdasri::before,
+.fr-icon-bsdasri::after {
+  background-image: url("./td-icons/icon-bsdasri.svg");
+  -webkit-mask-image: url("./td-icons/icon-bsdasri.svg");
+  mask-image: url("./td-icons/icon-bsdasri.svg");
+}
+
+.fr-icon-bsvhu::before,
+.fr-icon-bsvhu::after {
+  background-image: url("./td-icons/icon-bsvhu.svg");
+  -webkit-mask-image: url("./td-icons/icon-bsvhu.svg");
+  mask-image: url("./td-icons/icon-bsvhu.svg");
+}
+
+.fr-icon-bsff::before,
+.fr-icon-bsff::after {
+  background-image: url("./td-icons/icon-bsff.svg");
+  -webkit-mask-image: url("./td-icons/icon-bsff.svg");
+  mask-image: url("./td-icons/icon-bsff.svg");
+}
+
+.fr-icon--courses::before, .fr-icon--courses::after {
+  --icon-size: 4rem;
+  color: var(--background-action-high-blue-france);
+}
+
+.fr-grid-row--space-between {
+  justify-content: space-between;
+}
+
+
+/* sections */
+.td-home-section {
+  margin: 2rem 0;
+}
+
+/* section hero */
+.td-hero {
+  background-color: var(--background-contrast-blue-france);
+  padding: 2rem 3rem;
+}
+
+/* section courses */
+.courses__cards {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.course-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid var(--border-default-grey);
+}
+
+.course-card__title {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.course-card__date {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+
+.course-card__actions {
+  align-self: flex-end;
+}
+
+*, html {
+  scroll-behavior: smooth !important;
+}
+
+/* section pas videos */
+.videos-links {
+  gap: 1rem;
+}
+
+.video-link {
+  width: 282px;
+  height: 256px;
+}
+
+/* section social medias */
+.social-medias {
+  background-color: var(--background-contrast-blue-france);
+  padding: 2rem 0;
+}
+
+/* section stats */
+.td-stats-row {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  row-gap: 1em;
+  column-gap: 1em;
+}
+
+.td-stat-item {
+  grid-column: span 12;
+  @media (min-width: 62em) {
+    grid-column: span 3;
+  }
+
+}
+
+.fr-callout.td-stat-item--numbers {
+  padding: 4rem 3rem 3rem 3rem;
+
+}
+
+/* utils - text */
+.td-text-blue {
+  color: var(--text-action-high-blue-france);
+}
+
+.td-text-center {
+  text-align: center;
+}
+
+/* utils - grid */
+.td-col-separator {
+  border-left: 1px solid var(--text-action-high-blue-france);
+}

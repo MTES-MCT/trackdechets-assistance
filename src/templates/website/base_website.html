@@ -1,0 +1,201 @@
+{% load static hosts %}
+<!DOCTYPE html>
+{#keep theme light#}
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta content="telephone=no" name="format-detection">
+        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no"
+              name="viewport">
+        <link rel="stylesheet" href="{% static "css/dsfr.css" %}">
+        <link href="{% static "css/utility/utility.min.css" %}" rel="stylesheet">
+        <link href="{% static "css/trackdechets.css" %}" rel="stylesheet">
+        <meta content="#000091" name="theme-color">
+        <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
+        <link rel="apple-touch-icon" sizes="120x120" href="{% static "img/apple-touch-icon.png" %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static "img/favicon-32x32.png" %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static "img/favicon-16x16.png" %}">
+        <link rel="manifest" href="{% static "site.webmanifest" %}">
+        <link rel="mask-icon" href="{% static "img/safari-pinned-tab.svg" %}" color="#fff">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <div class="fr-skiplinks">
+            <nav aria-label="Accès rapide" class="fr-container" role="navigation">
+                <ul class="fr-skiplinks__list">
+                    <li>
+                        <a class="fr-link" href="#content">Contenu</a>
+                    </li>
+                    <li>
+                        <a class="fr-link" href="#header-main-nav">Menu</a>
+                    </li>
+                </li>
+                <li>
+                    <a class="fr-link" href="#footer">Pied de page</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <header class="fr-header fr-mb-2v" role="banner">
+        <div class="fr-header__body">
+            <div class="fr-container">
+                <div class="fr-header__body-row">
+                    <a href="/">
+                        <div class="fr-header__brand fr-enlarge-link">
+                            <div class="fr-header__brand-top">
+                                <div class="fr-header__logo">
+                                    <p class="fr-logo">
+                                        Ministère
+                                        <br />
+                                        de la transition
+                                        <br />
+                                        écologique
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="fr-header__service">
+                                <img alt="Icone trackdéchets" height="70px" src="{% static "img/trackdechets.png" %}" width="70px" />
+                            </div>
+                            <div>
+                                <h1 class="fr-h5">Trackdéchets</h1>
+                                <p class="fr-text">Gérer la traçabilité en toute sécurité</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="fr-header__tools">
+                        <a class="fr-link fr-icon-arrow-right-line fr-link--sm fr-link--icon-left"
+                           href="#">Créer mon compte</a>
+                        <a href="#"
+                           class="fr-btn fr-btn--secondary fr-btn--sm  fr-btn--icon-right fr-icon-account-circle-fill">
+                            Se connecter
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fr-container">
+            <nav aria-label="Menu principal"
+                 class="fr-nav"
+                 role="navigation"
+                 id="main-nav">
+                <ul class="fr-nav__list">
+                    <li class="fr-nav__item">
+                        <a aria-controls="modal-header__menu"
+                           {% if is_homepage %}aria-current="true"{% endif %}
+                           class="fr-nav__link"
+                           href="/"
+                           target="_self">Accueil</a>
+                    </li>
+                    <li class="fr-nav__item">
+                        <button aria-controls="menu-776" aria-expanded="false" class="fr-nav__btn">Faq & aides</button>
+                        <div class="fr-collapse fr-menu" id="menu-776">
+                            <ul class="fr-menu__list">
+                                <li>
+                                    <a class="fr-nav__link"
+                                       href="https://faq.trackdechets.fr/"
+                                       target="_blank">Foire aux
+                                    questions</a>
+                                </li>
+                                <li>
+                                    <a class="fr-nav__link"
+                                       href="https://www.youtube.com/@Trackdechets"
+                                       target="_blank">Vidéos
+                                    des formations</a>
+                                </li>
+                                <li>
+                                    <a class="fr-nav__link"
+                                       href="https://drive.google.com/file/d/11NYm6i1OotMmVi-gDDD1kGnKEvH2U3sE/view"
+                                       target="_blank">Brochure des formations</a>
+                                </li>
+                                <li>
+                                    <a class="fr-nav__link" href="#" target="_blank">Site de démonstration</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="fr-nav__item">
+                        <a aria-controls="modal-header__menu"
+                           class="fr-nav__link"
+                           href="https://developers.trackdechets.beta.gouv.fr/"
+                           target="_blank">Documentation
+                        développeur</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="content" role="main">
+        {% block main %}{% endblock %}
+    </main>
+    <footer class="fr-footer" id="footer" role="contentinfo">
+        <div class="fr-container">
+            <div class="fr-footer__body">
+                <div class="fr-footer__brand fr-enlarge-link">
+                    <p class="fr-logo">
+                        République
+                        <br>
+                        Française
+                    </p>
+                    <a class="fr-footer__brand-link"
+                       href="/"
+                       title="Retour à l’accueil du site - Fabrique numérique du ministère de l'écologie - République Française">
+                        <img alt="Logo du brgm" class="fr-footer__logo" src="{% static "img/brgm.svg" %}" style="width:13rem;" />
+                    </a>
+                </div>
+                <div class="fr-footer__content">
+                    <p class="fr-footer__content-desc">
+                        Trackdéchets est un service numérique de
+                        l'Etat incubé à la Fabrique Numérique du Ministère de la Transition écologique, membre du réseau
+                        d’incubateurs beta.gouv.fr
+                    </p>
+                    <ul class="fr-footer__content-list">
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link"
+                               href="{% host_url 'answer' host 'assistance_hosts' %}"
+                               rel="noopener external"
+                               target="_blank">Nous contacter</a>
+                        </li>
+                        <li class="fr-footer__content-item">
+                            <a class="fr-footer__content-link"
+                               href="{% host_url 'partners' host 'website_hosts' %}"
+                               target="_self">Nos partenaires</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fr-footer__bottom">
+                <ul class="fr-footer__bottom-list">
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="#">Accessibilité :
+                        non conforme</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link"
+                           download=""
+                           href="{% static 'pdf/mentions-legales.pdf' %}">Mentions légales</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link" href="#">Politique de confidentialité</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link"
+                           href="{% host_url 'legals' host 'website_hosts' %}">Conditions générales d’utilisation</a>
+                    </li>
+                </ul>
+                <div class="fr-footer__bottom-copy">
+                    <p>
+                        Sauf mention explicite de propriété intellectuelle détenue par des
+                        tiers, les contenus de ce site sont proposés sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
+    rel="noopener external"
+    target="_blank"
+    title="Voir la licence Etalab 2.0 - nouvelle fenêtre">licence etalab-2.0</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static "js/dsfr.module.min.js" %}" type="module"></script>
+    <script src="{% static "js/htmx.js" %}" defer></script>
+    <script nomodule src="{% static "js/dsfr.nomodule.min.js" %}" type="text/javascript"></script>
+</body>
+</html>

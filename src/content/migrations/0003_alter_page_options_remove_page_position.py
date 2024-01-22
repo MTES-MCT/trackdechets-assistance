@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("content", "0002_page_level_page_lft_page_parent_page_rght_and_more"),
     ]

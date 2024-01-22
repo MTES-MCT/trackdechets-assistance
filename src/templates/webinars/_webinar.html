@@ -10,8 +10,7 @@
     </div>
     {% if webinar.is_future %}
         <span class="webinar__cal ">
-            {% if webinar.visio_link %}
-                <a href="{{ webinar.visio_link }}" class="webinar__visio ">Participer</a>{% endif %}
+            {% if webinar.visio_link %}<a href="{{ webinar.visio_link }}" class="webinar__visio ">Participer</a>{% endif %}
             <a href="{% url "webinar_ics" webinar.pk %}" class=" fr-btn ">Ajouter à mon calendrier</a>
         </span>
     {% endif %}

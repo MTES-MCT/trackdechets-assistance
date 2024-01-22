@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("content", "0003_alter_page_options_remove_page_position"),
     ]
