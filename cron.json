@@ -1,0 +1,8 @@
+{
+  "jobs": [
+    {
+      "command": "7 0 * * * python /app/src/manage.py retrieve_stats --settings=config.settings.production",
+      "size": "L"
+    }
+  ]
+}
