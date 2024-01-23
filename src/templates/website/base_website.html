@@ -171,11 +171,13 @@
                     </li>
                     <li class="fr-footer__bottom-item">
                         <a class="fr-footer__bottom-link"
-                           download=""
+                           download="true"
                            href="{% static 'pdf/mentions-legales.pdf' %}">Mentions légales</a>
                     </li>
                     <li class="fr-footer__bottom-item">
-                        <a class="fr-footer__bottom-link" href="#">Politique de confidentialité</a>
+                        <a class="fr-footer__bottom-link"
+                           href="{% static 'pdf/politique-de-confidentialite.pdf' %}"
+                           download="true">Politique de confidentialité</a>
                     </li>
                     <li class="fr-footer__bottom-item">
                         <a class="fr-footer__bottom-link"
@@ -185,10 +187,11 @@
                 <div class="fr-footer__bottom-copy">
                     <p>
                         Sauf mention explicite de propriété intellectuelle détenue par des
-                        tiers, les contenus de ce site sont proposés sous <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
-    rel="noopener external"
-    target="_blank"
-    title="Voir la licence Etalab 2.0 - nouvelle fenêtre">licence etalab-2.0</a>
+                        tiers, les contenus de ce site sont proposés sous
+                        <a href="https://github.com/etalab/licence-ouverte/blob/master/LO.md"
+                           rel="noopener external"
+                           target="_blank"
+                           title="Voir la licence Etalab 2.0 - nouvelle fenêtre">licence etalab-2.0</a>
                     </p>
                 </div>
             </div>
