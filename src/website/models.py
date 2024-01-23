@@ -8,7 +8,7 @@ class Menu:
 class FaqLink(models.Model):
     label = models.CharField(max_length=50)
     url = models.URLField(max_length=256)
-    position = models.PositiveIntegerField(unique=True)
+    position = models.PositiveIntegerField()
 
     def __str__(self):
         return self.label
@@ -22,7 +22,7 @@ class FaqLink(models.Model):
 class FaqCard(models.Model):
     title = models.CharField(max_length=256, blank=True)
     content = models.TextField()
-    position = models.PositiveIntegerField(unique=True)
+    position = models.PositiveIntegerField()
 
     def __str__(self):
         return self.title
@@ -39,7 +39,7 @@ class IconTypeText(models.TextChoices):
     BSFF = "Bsff", "Bsff"
     BSDASRI = "Bsdasri", "Bsdasri"
     BSVHU = "Bsvhu", "Bsvhu"
-    BSPAOH = "Bspaoh", "Bspao"
+    BSPAOH = "Bspaoh", "Bspaoh"
 
 
 ICON_CLASS_ARROW = "fr-fi-arrow-right-line"
@@ -83,7 +83,7 @@ class VideoLink(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=200)
     url = models.URLField(max_length=256)
-    position = models.PositiveIntegerField(unique=True)
+    position = models.PositiveIntegerField()
 
     def __str__(self):
         return self.title
