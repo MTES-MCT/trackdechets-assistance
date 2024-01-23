@@ -3,16 +3,15 @@
 from django.db import migrations
 
 
-
 def fill_faq_card_position(apps, schema_editor):
-    FaqCard = apps.get_model('website', 'FaqCard')
+    FaqCard = apps.get_model("website", "FaqCard")
 
     for index, fq in enumerate(FaqCard.objects.all()):
         fq.position = index
         fq.save()
 
-class Migration(migrations.Migration):
 
+class Migration(migrations.Migration):
     dependencies = [
         ("website", "0003_alter_faqcard_options_faqcard_position_and_more"),
     ]

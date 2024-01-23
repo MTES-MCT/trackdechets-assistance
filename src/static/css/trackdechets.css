@@ -94,8 +94,9 @@
 }
 
 .video-link {
-  width: 282px;
-  height: 256px;
+  width: 280px;
+  min-height: 230px;
+  height: 230px;
 }
 
 /* section social medias */

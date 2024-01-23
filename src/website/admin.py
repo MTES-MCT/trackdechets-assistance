@@ -1,7 +1,8 @@
+from adminsortable2.admin import SortableAdminMixin
 from django.contrib import admin
 
 from .models import FaqCard, FaqCardLink, FaqLink, StatsDigest, VideoLink
-from adminsortable2.admin import SortableAdminMixin
+
 
 @admin.register(FaqLink)
 class FaqLinkAdmin(SortableAdminMixin, admin.ModelAdmin):
