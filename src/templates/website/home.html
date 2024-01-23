@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="fr-grid-row  fr-grid-row--center">
-                <a href="#"
+                <a href="https://faq.trackdechets.fr"
                    class="fr-btn fr-btn--primary fr-btn--icon-right fr-icon-arrow-right-line">Consulter la faq</a>
             </div>
         </section>
@@ -77,15 +77,13 @@
                         <div class="course-card__actions">
                             {% if webinar.is_future %}
                                 {% if webinar.visio_link %}
-                                    <a href="#"
-                                       class="fr-btn fr-btn--primary fr-btn--icon-left fr-icon-calendar-event-fill">Ajouter
-                                        au
-                                        calendrier
+                                    <a href="{% host_url 'webinar_ics' webinar.pk host 'formations_hosts' %}"
+                                       class="fr-btn fr-btn--primary fr-btn--icon-left fr-icon-calendar-event-fill">
+                                        Ajouter au calendrier
                                     </a>
                                     <a href="{{ webinar.visio_link }}"
-                                       class="fr-btn fr-btn--secondary fr-btn--icon-left fr-icon-chat-2-line">Participer
-                                        au
-                                        Zoom
+                                       class="fr-btn fr-btn--secondary fr-btn--icon-left fr-icon-chat-2-line">
+                                        Participer au Zoom
                                     </a>
                                 {% endif %}
                             {% endif %}
@@ -117,10 +115,7 @@
             </div>
             <p class="fr-grid-row fr-grid-row--center fr-mt-4v fr-mb-4v">
                 <a class="fr-btn fr-btn--secondary fr-btn--icon-right fr-icon-video-chat-line"
-                   href="#">Retrouver toutes
-                    les
-                    formations
-                </a>
+                   href="https://www.youtube.com/@Trackdechets">Retrouver toutes les formations</a>
             </p>
         </section>
     </div>
