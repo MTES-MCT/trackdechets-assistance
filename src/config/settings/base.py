@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "django_hosts",
     "rest_framework",
     "widget_tweaks",
+    "adminsortable2",
     "mptt",
     "martor",
     "template_partials",

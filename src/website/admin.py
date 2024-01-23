@@ -1,10 +1,10 @@
 from django.contrib import admin
 
 from .models import FaqCard, FaqCardLink, FaqLink, StatsDigest, VideoLink
-
+from adminsortable2.admin import SortableAdminMixin
 
 @admin.register(FaqLink)
-class FaqLinkAdmin(admin.ModelAdmin):
+class FaqLinkAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ["label", "url", "position"]
 
 
@@ -14,7 +14,7 @@ class StatsDigestAdmin(admin.ModelAdmin):
 
 
 @admin.register(VideoLink)
-class VideoLinkAdmin(admin.ModelAdmin):
+class VideoLinkAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ["title", "url", "position"]
 
 
@@ -23,6 +23,6 @@ class FaqCardLinkInline(admin.StackedInline):
 
 
 @admin.register(FaqCard)
-class FaqCardAdmin(admin.ModelAdmin):
-    list_display = ["pk", "title", "content"]
+class FaqCardAdmin(SortableAdminMixin, admin.ModelAdmin):
+    list_display = ["pk", "title", "content", "position"]
     inlines = [FaqCardLinkInline]

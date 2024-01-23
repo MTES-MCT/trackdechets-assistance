@@ -22,6 +22,7 @@ class FaqLink(models.Model):
 class FaqCard(models.Model):
     title = models.CharField(max_length=256, blank=True)
     content = models.TextField()
+    position = models.PositiveIntegerField(unique=True)
 
     def __str__(self):
         return self.title
@@ -29,6 +30,7 @@ class FaqCard(models.Model):
     class Meta:
         verbose_name = "Faq Card"
         verbose_name_plural = "Faq Cards"
+        ordering = ["position"]
 
 
 class IconTypeText(models.TextChoices):
