@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "widget_tweaks",
     "adminsortable2",
+    "compressor",
     "mptt",
     "martor",
     "template_partials",
@@ -126,6 +127,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
 )
 STATICFILES_DIRS = [
     BASE_DIR / "static",

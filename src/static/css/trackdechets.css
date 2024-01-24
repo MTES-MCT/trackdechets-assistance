@@ -1,3 +1,8 @@
+/* global*/
+*, html {
+  scroll-behavior: smooth !important;
+}
+
 /*icons*/
 .fr-icon-bsdd::before,
 .fr-icon-bsdd::after {
@@ -43,7 +48,59 @@
   justify-content: space-between;
 }
 
+/* Header and nav */
+.fr-header__logos {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+}
 
+.fr-header__tools-links {
+  align-items: center;
+}
+
+@media (width < 62em) {
+  .fr-header__body-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .fr-header__service {
+    box-shadow: none;
+  }
+
+  .fr-header__brand {
+    background: none;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header__baseline {
+    margin-left: 1em;
+  }
+
+  .fr-callout {
+    margin-bottom: 0.5em;
+  }
+
+  .td-hero__illus {
+    margin-top: 1em;
+
+  }
+}
+
+@media (width >= 62em) {
+  .fr-header__brand-top {
+    width: auto;
+  }
+
+  .fr-header__logos {
+    width: auto;
+  }
+}
+
+/* End header and nav */
 /* sections */
 .td-home-section {
   margin: 2rem 0;
@@ -53,6 +110,15 @@
 .td-hero {
   background-color: var(--background-contrast-blue-france);
   padding: 2rem 3rem;
+}
+
+.td-hero__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.td-hero__actions {
+  margin-top: auto;
 }
 
 /* section courses */
@@ -82,21 +148,27 @@
 
 .course-card__actions {
   align-self: flex-end;
-}
-
-*, html {
-  scroll-behavior: smooth !important;
+  display: flex;
+  column-gap: 1em;
+  @media (width < 62em) {
+    flex-direction: column;
+    row-gap: 0.5em;
+  }
 }
 
 /* section pas videos */
 .videos-links {
   gap: 1rem;
+
 }
 
 .video-link {
   width: 280px;
   min-height: 230px;
   height: 230px;
+  @media (width < 62em) {
+    width: 100%;
+  }
 }
 
 /* section social medias */
@@ -110,8 +182,11 @@
   margin-bottom: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  row-gap: 1em;
+
   column-gap: 1em;
+  @media (width < 62em) {
+    margin-bottom: 0;
+  }
 }
 
 .td-stat-item {
@@ -119,7 +194,6 @@
   @media (min-width: 62em) {
     grid-column: span 3;
   }
-
 }
 
 .fr-callout.td-stat-item--numbers {

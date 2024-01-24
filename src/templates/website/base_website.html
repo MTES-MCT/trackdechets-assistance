@@ -1,4 +1,4 @@
-{% load static hosts %}
+{% load static hosts compress %}
 <!DOCTYPE html>
 {#keep theme light#}
 <html lang="fr">
@@ -10,9 +10,11 @@
         <meta content="telephone=no" name="format-detection">
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no"
               name="viewport">
-        <link rel="stylesheet" href="{% static "css/dsfr.css" %}">
-        <link href="{% static "css/utility.min.css" %}" rel="stylesheet">
-        <link href="{% static "css/trackdechets.css" %}" rel="stylesheet">
+        {% compress css %}
+            <link rel="stylesheet" href="{% static "css/dsfr.css" %}">
+            <link href="{% static "css/utility.min.css" %}" rel="stylesheet">
+            <link href="{% static "css/trackdechets.css" %}" rel="stylesheet">
+        {% endcompress %}
         <meta content="#000091" name="theme-color">
         <!-- Défini la couleur de thème du navigateur (Safari/Android) -->
         <link rel="apple-touch-icon" sizes="120x120" href="{% static "img/apple-touch-icon.png" %}">
@@ -43,8 +45,8 @@
         <div class="fr-header__body">
             <div class="fr-container">
                 <div class="fr-header__body-row">
-                    <a href="/">
-                        <div class="fr-header__brand fr-enlarge-link">
+                    <div class="fr-header__brand fr-enlarge-link">
+                        <div class="fr-header__logos">
                             <div class="fr-header__brand-top">
                                 <div class="fr-header__logo">
                                     <p class="fr-logo">
@@ -57,74 +59,109 @@
                                 </div>
                             </div>
                             <div class="fr-header__service">
-                                <img alt="Icone trackdéchets" height="70px" src="{% static "img/trackdechets.png" %}" width="70px" />
+                                <a href="/" title="Accueil - Trackdéchets" class="router-link-active">
+                                    <img alt="Logo trackdéchets" height="70px" src="{% static "img/trackdechets.png" %}" width="70px" />
+                                </a>
                             </div>
-                            <div>
-                                <h1 class="fr-h5">Trackdéchets</h1>
-                                <p class="fr-text">Gérer la traçabilité en toute sécurité</p>
+                            <div class="fr-header__navbar">
+                                <button data-fr-opened="false"
+                                        aria-controls="modal-header__menu"
+                                        aria-haspopup="menu"
+                                        id="button-modal-menu"
+                                        title="Menu"
+                                        class="fr-btn--menu fr-btn">Menu</button>
                             </div>
                         </div>
-                    </a>
+                        <div class="header__baseline">
+                            <h1 class="fr-h5">Trackdéchets</h1>
+                            <p class="fr-text">Gérer la traçabilité en toute sécurité</p>
+                        </div>
+                    </div>
                     <div class="fr-header__tools">
-                        <a class="fr-link fr-icon-arrow-right-line fr-link--sm fr-link--icon-left"
-                           href="https://app.trackdechets.beta.gouv.fr/signup">Créer mon compte</a>
-                        <a href="https://app.trackdechets.beta.gouv.fr/login"
-                           class="fr-btn fr-btn--secondary fr-btn--sm  fr-btn--icon-right fr-icon-account-circle-fill">
-                            Se connecter
-                        </a>
+                        <div class="fr-header__tools-links">
+                            <a class="fr-link fr-icon-arrow-right-line fr-link--sm fr-link--icon-left"
+                               href="https://app.trackdechets.beta.gouv.fr/signup">Créer mon compte</a>
+                            <a href="https://app.trackdechets.beta.gouv.fr/login"
+                               class="fr-btn fr-btn--secondary fr-btn--sm  fr-btn--icon-right fr-icon-account-circle-fill">
+                                Se connecter
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="fr-container">
-            <nav aria-label="Menu principal"
-                 class="fr-nav"
-                 role="navigation"
-                 id="main-nav">
-                <ul class="fr-nav__list">
-                    <li class="fr-nav__item">
-                        <a aria-controls="modal-header__menu"
-                           {% if is_homepage %}aria-current="true"{% endif %}
-                           class="fr-nav__link"
-                           href="/"
-                           target="_self">Accueil</a>
-                    </li>
-                    <li class="fr-nav__item">
-                        <button aria-controls="menu-776" aria-expanded="false" class="fr-nav__btn">Faq & aides</button>
-                        <div class="fr-collapse fr-menu" id="menu-776">
-                            <ul class="fr-menu__list">
-                                <li>
-                                    <a class="fr-nav__link"
-                                       href="https://faq.trackdechets.fr/"
-                                       target="_blank">Foire aux
-                                    questions</a>
-                                </li>
-                                <li>
-                                    <a class="fr-nav__link"
-                                       href="https://www.youtube.com/@Trackdechets"
-                                       target="_blank">Vidéos
-                                    des formations</a>
-                                </li>
-                                <li>
-                                    <a class="fr-nav__link"
-                                       href="https://drive.google.com/file/d/11NYm6i1OotMmVi-gDDD1kGnKEvH2U3sE/view"
-                                       target="_blank">Brochure des formations</a>
-                                </li>
-                                <li>
-                                    <a class="fr-nav__link" href="#" target="_blank">Site de démonstration</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="fr-nav__item">
-                        <a aria-controls="modal-header__menu"
-                           class="fr-nav__link"
-                           href="https://developers.trackdechets.beta.gouv.fr/"
-                           target="_blank">Documentation
-                        développeur</a>
-                    </li>
-                </ul>
-            </nav>
+        <div id="modal-header__menu"
+             aria-labelledby="button-modal-menu"
+             class="fr-header__menu fr-modal">
+            <div class="fr-container">
+                <button aria-controls="modal-header__menu"
+                        class="fr-btn fr-btn--close btn-modal-menu">Fermer</button>
+                <div class="fr-header__menu-links">
+                    <ul class="fr-btns-group">
+                        <li>
+                            <a class="fr-link fr-icon-arrow-right-line fr-link--sm fr-link--icon-left"
+                               href="https://app.trackdechets.beta.gouv.fr/signup">Créer mon compte</a>
+                        </li>
+                        <li>
+                            <a href="https://app.trackdechets.beta.gouv.fr/login"
+                               class="fr-btn fr-btn--secondary fr-btn--sm  fr-btn--icon-right fr-icon-account-circle-fill">
+                                Se connecter
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <nav aria-label="Menu principal"
+                     class="fr-nav"
+                     role="navigation"
+                     id="main-nav">
+                    <ul class="fr-nav__list">
+                        <li class="fr-nav__item">
+                            <a {% if is_homepage %}aria-current="true"{% endif %}
+                               class="fr-nav__link"
+                               href="/"
+                               target="_self">Accueil</a>
+                        </li>
+                        <li class="fr-nav__item">
+                            <button aria-controls="menu-dropdown-1"
+                                    aria-expanded="false"
+                                    class="fr-nav__btn">FAQ et aides</button>
+                            <div class="fr-collapse fr-menu" id="menu-dropdown-1">
+                                <ul class="fr-menu__list">
+                                    <li>
+                                        <a class="fr-nav__link"
+                                           href="https://faq.trackdechets.fr/"
+                                           target="_blank">Foire aux
+                                        questions</a>
+                                    </li>
+                                    <li>
+                                        <a class="fr-nav__link"
+                                           href="https://www.youtube.com/@Trackdechets"
+                                           target="_blank">Vidéos
+                                        des formations</a>
+                                    </li>
+                                    <li>
+                                        <a class="fr-nav__link"
+                                           href="https://drive.google.com/file/d/11NYm6i1OotMmVi-gDDD1kGnKEvH2U3sE/view"
+                                           target="_blank">Brochure des formations</a>
+                                    </li>
+                                    <li>
+                                        <a class="fr-nav__link"
+                                           href="https://sandbox.trackdechets.beta.gouv.fr"
+                                           target="_blank">Site de démonstration</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="fr-nav__item">
+                            <a aria-controls="modal-header__menu"
+                               class="fr-nav__link"
+                               href="https://developers.trackdechets.beta.gouv.fr/"
+                               target="_blank">Documentation
+                            développeur</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
     <main id="content" role="main">

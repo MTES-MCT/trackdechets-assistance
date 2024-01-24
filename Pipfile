@@ -26,12 +26,12 @@ django-cors-headers = "*"
 httpx = "*"
 django-template-partials = "*"
 sib-api-v3-sdk = "*"
+django-compressor = "*"
 
 [dev-packages]
 djlint = "*"
 ruff = "*"
 isort = "*"
-
 
 [requires]
 python_version = "3.11"
