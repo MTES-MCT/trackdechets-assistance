@@ -80,14 +80,25 @@
     margin-left: 1em;
   }
 
-  .fr-callout {
-    margin-bottom: 0.5em;
+  .fr-header__menu-links {
+    display: flex;
+    flex-direction: column;
   }
 
-  .td-hero__illus {
-    margin-top: 1em;
-
+  .fr-header__menu-links a, .fr-header__menu-links a.fr-link {
+    margin: 0.5em 0;
+    box-shadow: none;
+    font-size: 16px;
   }
+}
+
+.fr-callout {
+  margin-bottom: 0.5em;
+}
+
+.td-hero__illus {
+  margin-top: 1em;
+
 }
 
 @media (width >= 62em) {
