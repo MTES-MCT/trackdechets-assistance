@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 
@@ -21,11 +22,17 @@ class FaqLink(models.Model):
 
 class FaqCard(models.Model):
     title = models.CharField(max_length=256, blank=True)
-    content = models.TextField()
+    content = models.TextField(blank=True)
     position = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.title
+        return self.title or self.content[:20]
+
+    def clean(self):
+        if not self.title and not self.position:
+            raise ValidationError(
+                "Vous devez renseigner au moins le titre ou le contenu"
+            )
 
     class Meta:
         verbose_name = "Faq Card"

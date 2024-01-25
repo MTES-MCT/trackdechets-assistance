@@ -2,8 +2,8 @@
 {% load static hosts partials %}
 {% partialdef faq_card %}
 <div class="fr-callout">
-    {% if  card.title %}<h3>{{ card.title }}</h3>{% endif %}
-    <p class="fr-callout__text">{{ card.content }}</p>
+    {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
+    {% if card.content %}<p class="fr-callout__text">{{ card.content }}</p>{% endif %}
     {% for link in card.links.all %}
         <a class="fr-btn fr-btn--secondary fr-btn--icon-right {{ link.icon_class }}"
            href="{{ link.url }}">{{ link.label }}</a>
@@ -57,7 +57,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="fr-grid-row  fr-grid-row--center">
+            <div class="fr-grid-row fr-grid-row--center fr-mt-5v">
                 <a href="https://faq.trackdechets.fr"
                    class="fr-btn fr-btn--primary fr-btn--icon-right fr-icon-arrow-right-line">Consulter la faq</a>
             </div>

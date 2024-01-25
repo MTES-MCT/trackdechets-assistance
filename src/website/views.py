@@ -1,3 +1,5 @@
+import math
+
 import sib_api_v3_sdk
 from django.conf import settings
 from django.http import Http404
@@ -34,7 +36,7 @@ class Home(TemplateView):
 
     def get_context_data(self, **kwargs):
         faq_cards = self.get_faq_cards()
-        half = int(len(faq_cards) / 2)
+        half = math.ceil(len(faq_cards) / 2)
         faq_cards_left = faq_cards[:half]
         faq_cards_right = faq_cards[half:]
 
