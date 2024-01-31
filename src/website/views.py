@@ -59,6 +59,10 @@ class Partners(TemplateView):
     template_name = "website/partners.html"
 
 
+class Accessibility(TemplateView):
+    template_name = "website/accessibility.html"
+
+
 GENERAL_TYPE = "general"
 TECH_TYPE = "tech"
 MAPPING = {
