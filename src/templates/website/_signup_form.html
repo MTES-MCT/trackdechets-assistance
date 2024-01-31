@@ -1,13 +1,13 @@
 {% load hosts %}
-<form action="{% host_url "tech_signup" variant host 'website_hosts' %}"
+<form action="{% host_url "nl_signup" variant host 'website_hosts' %}"
       hx-target="#{{ variant }}-signup"
-      hx-post="{% host_url "tech_signup" variant host 'website_hosts' %}"
+      hx-post="{% host_url "nl_signup" variant host 'website_hosts' %}"
       method="post">
     {% csrf_token %}
     <div class="fr-input-group">
         <label class="fr-label" for="{{ variant }}-newsletter-email">Votre adresse électronique (ex. : nom@domaine.fr)</label>
         <div class="fr-input-wrap fr-input-wrap--addon">
-            <input aria-describedby="newsletter-email-hint-text newsletter-email-messages"
+            <input aria-describedby="{{ variant }}-newsletter-email-hint-text {{ variant }}-newsletter-email-messages"
                    autocomplete="off"
                    class="fr-input"
                    id="{{ variant }}-newsletter-email"
