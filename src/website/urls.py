@@ -1,11 +1,11 @@
 from django.urls import path
 
-from .views import Accessibility, Home, Legals, Partners, tech_signup
+from .views import Accessibility, Home, Partners, UseTerms, nl_signup
 
 urlpatterns = [
     path("", Home.as_view(), name="home"),
     path("partenaires/", Partners.as_view(), name="partners"),
-    path("mentions-legales/", Legals.as_view(), name="legals"),
+    path("cgu/", UseTerms.as_view(), name="use_terms"),
     path("accessibilite/", Accessibility.as_view(), name="accessibility"),
-    path("tech-signup/<str:variant>/", tech_signup, name="tech_signup"),
+    path("nl-signup/<str:variant>/", nl_signup, name="nl_signup"),
 ]

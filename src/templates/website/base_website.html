@@ -81,7 +81,7 @@
                             <a class="fr-link fr-icon-arrow-right-line fr-link--sm fr-link--icon-left"
                                href="https://app.trackdechets.beta.gouv.fr/signup">Créer mon compte</a>
                             <a href="https://app.trackdechets.beta.gouv.fr/login"
-                               class="fr-btn fr-btn--secondary fr-btn--sm  fr-btn--icon-right fr-icon-account-circle-fill">
+                               class="fr-btn fr-btn--secondary fr-btn--sm  fr-btn--icon-right fr-icon-account-circle-line">
                                 Se connecter
                             </a>
                         </div>
@@ -193,22 +193,28 @@
             <div class="fr-footer__bottom">
                 <ul class="fr-footer__bottom-list">
                     <li class="fr-footer__bottom-item">
-                        <a class="fr-footer__bottom-link" href="#">Accessibilité :
+                        <a class="fr-footer__bottom-link" href="{% url "accessibility" %}">Accessibilité
+                            :
                         non conforme</a>
                     </li>
                     <li class="fr-footer__bottom-item">
                         <a class="fr-footer__bottom-link"
-                           download="true"
+                           href="{% static 'pdf/homologation-trackdechets-version-courte.pdf' %}"
+                           download="homologation.pdf">Homologation</a>
+                    </li>
+                    <li class="fr-footer__bottom-item">
+                        <a class="fr-footer__bottom-link"
+                           download="Mentions-legales.pdf"
                            href="{% static 'pdf/mentions-legales.pdf' %}">Mentions légales</a>
                     </li>
                     <li class="fr-footer__bottom-item">
                         <a class="fr-footer__bottom-link"
                            href="{% static 'pdf/politique-de-confidentialite.pdf' %}"
-                           download="true">Politique de confidentialité</a>
+                           download="Politique-de-confidentialite.pdf">Politique de confidentialité</a>
                     </li>
                     <li class="fr-footer__bottom-item">
                         <a class="fr-footer__bottom-link"
-                           href="{% host_url 'legals' host 'website_hosts' %}">Conditions générales d’utilisation</a>
+                           href="{% host_url 'use_terms' host 'website_hosts' %}">Conditions générales d’utilisation</a>
                     </li>
                 </ul>
                 <div class="fr-footer__bottom-copy">

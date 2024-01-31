@@ -51,8 +51,8 @@ class Home(TemplateView):
         )
 
 
-class Legals(TemplateView):
-    template_name = "website/legals.html"
+class UseTerms(TemplateView):
+    template_name = "website/use_terms.html"
 
 
 class Partners(TemplateView):
@@ -88,7 +88,7 @@ def create_newsletter_contact(email, newsletter_type):
     return False
 
 
-def tech_signup(request, variant=None):
+def nl_signup(request, variant=None):
     creation_success = False
     if variant not in (GENERAL_TYPE, TECH_TYPE):
         raise Http404

@@ -2,10 +2,10 @@
 {% load static hosts partials %}
 {% partialdef faq_card %}
 <div class="fr-callout">
-    {% if card.title %}<h3>{{ card.title }}</h3>{% endif %}
+    {% if card.title %}<h4>{{ card.title }}</h4>{% endif %}
     {% if card.content %}<p class="fr-callout__text">{{ card.content }}</p>{% endif %}
     {% for link in card.links.all %}
-        <a class="fr-btn fr-btn--secondary fr-btn--icon-right {{ link.icon_class }}"
+        <a class="fr-btn fr-btn--secondary fr-btn--icon-left {{ link.icon_class }}"
            href="{{ link.url }}">{{ link.label }}</a>
     {% endfor %}
 </div>
@@ -15,7 +15,7 @@
         <section class="td-hero fr-mt-5v" id="hero">
             <div class="fr-grid-row">
                 <div class="fr-col-md-6 fr-col-12 fr-col-md-offset-1 td-hero__text ">
-                    <h3 class="fr-callout__title fr-mb-0">Découvrez Trackdéchets</h3>
+                    <h2 class="fr-h1 fr-mb-0">Découvrez Trackdéchets</h2>
                     <p class="fr-callout__text">Gérer la traçabilité des déchets, en toute sécurité</p>
                     <p>
                         Apporter de la transparence et de la fiabilité dans la filière déchets.
@@ -23,11 +23,11 @@
                         Simplifier la
                         traçabilité des déchets en temps réel
                     </p>
-                    <p class="fr-grid-row fr-grid-row--right td-hero__actions">
+                    <p class="td-hero__actions">
                         <a href="https://faq.trackdechets.fr/informations-generiques/les-fondamentaux/quest-ce-que-trackdechets"
                            class="fr-btn fr-btn--secondary fr-btn--icon-left fr-icon-question-fill">Découvrir</a>
                         <a href="https://app.trackdechets.beta.gouv.fr/signup"
-                           class="fr-btn fr-btn--primary fr-btn--icon-left fr-icon-arrow-right-line fr-ml-1w">
+                           class="fr-btn fr-btn--primary fr-btn--icon-left fr-icon-arrow-right-fill  ">
                             Créer mon compte
                         </a>
                     </p>
@@ -41,7 +41,7 @@
             <h3 class="td-text-blue">Foire aux questions</h3>
             <p class="fr-grid-row fr-grid-row--center fr-grid-row--gap-1 ">
                 {% for link in faq_links %}
-                    <a class="fr-tag fr-fi-arrow-right-line fr-fi-arrow-right-line"
+                    <a class="fr-tag fr-icon-arrow-right-line  fr-tag--icon-left"
                        href="{{ link.url }}">{{ link.label }}</a>
                 {% endfor %}
             </p>
@@ -59,7 +59,7 @@
             </div>
             <div class="fr-grid-row fr-grid-row--center fr-mt-5v">
                 <a href="https://faq.trackdechets.fr"
-                   class="fr-btn fr-btn--primary fr-btn--icon-right fr-icon-arrow-right-line">Consulter la faq</a>
+                   class="fr-btn fr-btn--primary fr-btn--icon-right fr-icon-arrow-right-line">Consulter la foire aux questions</a>
             </div>
         </section>
         <section class="td-home-section" id="courses">
@@ -70,7 +70,7 @@
                         <div class="course-card__infos">
                             <h4 class="course-card__title">{{ webinar.title }}</h4>
                             <p class="course-card__date">
-                                <span aria-hidden="true" class="fr-icon-calendar-event-fill"></span>
+                                <span aria-hidden="true" class="fr-icon-calendar-event-fill td-text-blue"></span>
                                 <span style="text-transform: capitalize">{{ webinar.scheduled_at|date:"l d F Y, H:i" }}</span>
                             </p>
                         </div>
@@ -99,10 +99,10 @@
                     <div class="fr-tile fr-tile--sm fr-enlarge-link video-link">
                         <div class="fr-tile__body">
                             <div class="fr-tile__content fr-tile--no-icon">
-                                <h3 class="fr-tile__title">
+                                <h4 class="fr-badge fr-badge--info fr-badge--no-icon">
                                     <a href="{{ video.url }}">{{ video.title }}</a>
-                                </h3>
-                                <p class="fr-tile__desc">{{ video.description }}</p>
+                                </h4>
+                                <p class="fr-tile__desc fr-text--bold fr-mt-3v">{{ video.description }}</p>
                             </div>
                         </div>
                         <div class="fr-tile__header">
@@ -113,8 +113,8 @@
                     </div>
                 {% endfor %}
             </div>
-            <p class="fr-grid-row fr-grid-row--center fr-mt-4v fr-mb-4v">
-                <a class="fr-btn fr-btn--secondary fr-btn--icon-right fr-icon-video-chat-line"
+            <p class="fr-grid-row fr-grid-row--center fr-mt-8v fr-mb-4v">
+                <a class="fr-btn fr-btn--secondary fr-btn--icon-right fr-icon-video-chat-line td-full-width-mdd"
                    href="https://www.youtube.com/@Trackdechets">Retrouver toutes les formations</a>
             </p>
         </section>
@@ -132,11 +132,14 @@
                     <h5>Suivez nous sur les réseaux sociaux</h5>
                     <p class="fr-grid-row fr-grid-row--center">
                         <a class="fr-raw-link td-text-blue"
+                           target="_blank"
+                           rel="noopener noreferrer"
                            aria-label="Compte linkedin de Trackdéchets"
-                           href="https://www.linkedin.com/company/trackd%C3%A9chets-minist%C3%A8re-de-la-transition-%C3%A9cologique/"><span aria-hidden="true" class="fr-icon-linkedin-box-fill">Linkedin</span></a>
-                        <a class="fr-raw-link fr-ml-1w  td-text-blue"
+                           href="https://www.linkedin.com/company/trackd%C3%A9chets-minist%C3%A8re-de-la-transition-%C3%A9cologique/"><span aria-hidden="true" class="fr-icon-linkedin-box-fill"></span></a>
+                        <a class="fr-raw-link fr-ml-5w td-text-blue"
+                           target="_blank"
                            aria-label="Chaîne youtube de Trackdéchets"
-                           href="https://www.youtube.com/@Trackdechets"><span aria-hidden="true" class="fr-icon-youtube-fill">Youtube</span></a>
+                           href="https://www.youtube.com/@Trackdechets"><span aria-hidden="true" class="fr-icon-youtube-fill"></span></a>
                     </p>
                 </div>
             </div>
@@ -149,25 +152,25 @@
                 <p>Depuis 2020, Trackdéchets c'est :</p>
                 <div class="td-stats-row">
                     <div class="fr-callout td-stat-item td-stat-item--numbers">
-                        <p class="fr-h2">{{ stats_digest.waste_weight }}</p>
+                        <p class="td-stat-item__value">{{ stats_digest.waste_weight }}</p>
                         <div class="fr-mt-4v">
                             <p class="fr-text--lg">tonnes de déchets dangereux* tracés et traités au total</p>
                         </div>
                     </div>
                     <div class="fr-callout td-stat-item td-stat-item--numbers">
-                        <p class="fr-h2">{{ stats_digest.bsd_count }}</p>
+                        <p class="td-stat-item__value">{{ stats_digest.bsd_count }}</p>
                         <div class="fr-mt-4v">
                             <p class="fr-text--lg">bordereaux créés au total</p>
                         </div>
                     </div>
                     <div class="fr-callout td-stat-item td-stat-item--numbers">
-                        <p class="fr-h2">{{ stats_digest.company_count }}</p>
+                        <p class="td-stat-item__value">{{ stats_digest.company_count }}</p>
                         <div class="fr-mt-4v">
                             <p class="fr-text--lg">établissements inscrits au total</p>
                         </div>
                     </div>
-                    <div class="fr-callout td-stat-item">
-                        <p class="fr-h5">C'est aussi</p>
+                    <div class="fr-callout td-stat-item td-stat-item--text">
+                        <p class="fr-h5">C'est aussi :</p>
                         <ul>
                             <li>Le détail des quantités de déchets</li>
                             <li>Les établissements, les utilisateurs, les créations de comptes</li>
@@ -186,13 +189,13 @@
             <p class="td-text-center">
                 Découvrir si une entreprise est inscrite sur Trackdéchets,
                 <a class="fr-link"
-                   href="https://www.data.gouv.fr/fr/organizations/6200dfeba70a9f33f0854650/#/datasets">
+                   href="https://explore.data.gouv.fr/fr/tableau?url=https%3A%2F%2Fwww.data.gouv.fr%2Ffr%2Fdatasets%2Fr%2Fd894e329-a44f-45ee-b993-472415af462e">
                     grâce aux données publiques
                 </a>.
             </p>
         </section>
     </div>
-    <h3 class="td-text-blue fr-container">Évolutions techniques et produit de Trackdéchets</h3>
+    <h3 class="td-text-blue fr-container fr-mt-15v fr-mb-15v">Évolutions techniques et produit de Trackdéchets</h3>
     <section class="fr-container--fluid social-medias td-home-section fr-follow__newsletter"
              id="changelog">
         <div class="fr-container">
