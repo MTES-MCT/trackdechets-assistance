@@ -2,8 +2,9 @@ import math
 
 import sib_api_v3_sdk
 from django.conf import settings
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from django.views.generic import TemplateView
 from sib_api_v3_sdk.rest import ApiException
 
@@ -115,3 +116,8 @@ def nl_signup(request, variant=None):
     return render(
         request, "website/_signup_form.html", context={"form": form, "variant": variant}
     )
+
+
+def home_redirect(request):
+    """Redirect to home."""
+    return HttpResponseRedirect(reverse("home"))

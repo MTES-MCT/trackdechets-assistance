@@ -63,7 +63,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_HOSTCONF = "config.hosts"
-DEFAULT_HOST = "assistance_hosts"
+DEFAULT_HOST = "website_hosts"
 PARENT_HOST = "track.test"
 
 ROOT_URLCONF = "content.assistance_urls"
