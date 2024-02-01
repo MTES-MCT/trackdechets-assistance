@@ -12,7 +12,7 @@
 {% endpartialdef %}
 {% block main %}
     <div class="fr-container">
-        <section class="td-hero fr-mt-5v" id="hero">
+        <section class="td-hero" id="hero">
             <div class="fr-grid-row">
                 <div class="fr-col-md-6 fr-col-12 fr-col-md-offset-1 td-hero__text ">
                     <h2 class="fr-h1 fr-mb-0">Découvrez Trackdéchets</h2>
@@ -59,7 +59,8 @@
             </div>
             <div class="fr-grid-row fr-grid-row--center fr-mt-5v">
                 <a href="https://faq.trackdechets.fr"
-                   class="fr-btn fr-btn--primary fr-btn--icon-right fr-icon-arrow-right-line">Consulter la foire aux questions</a>
+                   class="fr-btn fr-btn--primary fr-btn--icon-right fr-icon-arrow-right-line">Consulter la foire aux
+                questions</a>
             </div>
         </section>
         <section class="td-home-section" id="courses">
@@ -186,7 +187,7 @@
                     statistiques
                 </a>
             </p>
-            <p class="td-text-center">
+            <p class="td-text-center fr-mt-5v">
                 Découvrir si une entreprise est inscrite sur Trackdéchets,
                 <a class="fr-link"
                    href="https://explore.data.gouv.fr/fr/tableau?url=https%3A%2F%2Fwww.data.gouv.fr%2Ffr%2Fdatasets%2Fr%2Fd894e329-a44f-45ee-b993-472415af462e">
@@ -195,19 +196,20 @@
             </p>
         </section>
     </div>
-    <h3 class="td-text-blue fr-container fr-mt-15v fr-mb-15v">Évolutions techniques et produit de Trackdéchets</h3>
-    <section class="fr-container--fluid social-medias td-home-section fr-follow__newsletter"
-             id="changelog">
-        <div class="fr-container">
-            <div class="fr-grid-row  fr-grid-row--gutters">
-                <div class="fr-col-12 fr-col-md-6">
-                    <h4 class="fr-h5">S’inscrire à la newsletter technique</h4>
-                    <p>
-                        Vous serez prévenu régulièrement des évolutions techniques en cours et à venir afin de vous
-                        permettre d’anticiper ces évolutions.
-                    </p>
+    <section class=" td-home-section" id="changelog">
+        <h3 class="td-text-blue fr-container fr-mb-10v ">Évolutions techniques et produit de Trackdéchets</h3>
+        <div class="fr-container--fluid social-medias fr-follow__newsletter">
+            <div class="fr-container">
+                <div class="fr-grid-row  fr-grid-row--gutters">
+                    <div class="fr-col-12 fr-col-md-6">
+                        <h4 class="fr-h5">S’inscrire à la newsletter technique</h4>
+                        <p>
+                            Vous serez prévenu régulièrement des évolutions techniques en cours et à venir afin de vous
+                            permettre d’anticiper ces évolutions.
+                        </p>
+                    </div>
+                    <div class="fr-col-12 fr-col-md-6" id="tech-signup">{% include 'website/_signup_form.html' with variant="tech" %}</div>
                 </div>
-                <div class="fr-col-12 fr-col-md-6" id="tech-signup">{% include 'website/_signup_form.html' with variant="tech" %}</div>
             </div>
         </div>
     </section>

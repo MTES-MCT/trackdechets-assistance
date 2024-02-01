@@ -48,6 +48,11 @@
   justify-content: space-between;
 }
 
+/* main */
+.td-main {
+  padding: 2em 0;
+}
+
 /* Header and nav */
 .fr-header__logos {
   display: flex;
@@ -98,7 +103,6 @@
 
 .td-hero__illus {
   margin-top: 1em;
-
 }
 
 @media (width >= 62em) {
@@ -114,7 +118,7 @@
 /* End header and nav */
 /* sections */
 .td-home-section {
-  margin: 2rem 0;
+  margin: 4rem 0;
 }
 
 /* section hero */
