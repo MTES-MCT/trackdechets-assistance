@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import Accessibility, Home, Partners, UseTerms, nl_signup
+from .views import Accessibility, Home, Partners, UseTerms, home_redirect, nl_signup
 
 urlpatterns = [
     path("", Home.as_view(), name="home"),
@@ -8,4 +8,5 @@ urlpatterns = [
     path("cgu/", UseTerms.as_view(), name="use_terms"),
     path("accessibilite/", Accessibility.as_view(), name="accessibility"),
     path("nl-signup/<str:variant>/", nl_signup, name="nl_signup"),
+    path("resources/", home_redirect),
 ]
