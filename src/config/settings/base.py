@@ -22,6 +22,7 @@ environ.Env.read_env(BASE_DIR / ".env")
 
 
 INSTALLED_APPS = [
+    "grappelli.dashboard",
     "grappelli",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -178,7 +179,8 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 WEBINARS_DOMAIN = env("WEBINARS_DOMAIN")
 
-GRAPPELLI_ADMIN_TITLE = "Trackdéchets assistance"
+GRAPPELLI_ADMIN_TITLE = "Trackdéchets assistance & admin site web"
+GRAPPELLI_INDEX_DASHBOARD = "config.dashboard.CustomIndexDashboard"
 
 BREVO_GENERAL_NEWSLETTER_ID = env.int("BREVO_GENERAL_NEWSLETTER_ID")
 BREVO_TECH_NEWSLETTER_ID = env.int("BREVO_TECH_NEWSLETTER_ID")

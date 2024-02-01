@@ -38,6 +38,12 @@
   -webkit-mask-image: url("./td-icons/icon-bsff.svg");
   mask-image: url("./td-icons/icon-bsff.svg");
 }
+.fr-icon-bspaoh::before,
+.fr-icon-bspaoh::after {
+  background-image: url("./td-icons/icon-bspaoh.svg");
+  -webkit-mask-image: url("./td-icons/icon-bspaoh.svg");
+  mask-image: url("./td-icons/icon-bspaoh.svg");
+}
 
 .fr-icon--courses::before, .fr-icon--courses::after {
   --icon-size: 4rem;
