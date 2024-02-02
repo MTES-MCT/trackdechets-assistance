@@ -38,6 +38,7 @@
   -webkit-mask-image: url("./td-icons/icon-bsff.svg");
   mask-image: url("./td-icons/icon-bsff.svg");
 }
+
 .fr-icon-bspaoh::before,
 .fr-icon-bspaoh::after {
   background-image: url("./td-icons/icon-bspaoh.svg");
@@ -260,6 +261,14 @@
 
 .fr-callout.td-stat-item--numbers {
   padding: 4rem 3rem 3rem 3rem;
+
+}
+
+/* Iframe */
+.iframe-stats {
+  width: 100%;
+  margin: auto;
+  background-color: transparent;
 
 }
 

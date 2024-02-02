@@ -121,3 +121,10 @@ def nl_signup(request, variant=None):
 def home_redirect(request):
     """Redirect to home."""
     return HttpResponseRedirect(reverse("home"))
+
+
+def stats(request):
+    return render(
+        request,
+        "website/stats.html",
+    )
