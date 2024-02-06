@@ -34,7 +34,7 @@ COMPRESS_OFFLINE = True  # Offline compression is required when using Whitenoise
 SENTRY_URL = env("SENTRY_URL")
 
 sentry_sdk.init(
-    dsn=SENTRY_DSN,
+    dsn=SENTRY_URL,
     integrations=[
         DjangoIntegration(),
     ],
