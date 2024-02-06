@@ -2,6 +2,8 @@ from django.utils.translation import gettext_lazy as _
 from grappelli.dashboard import Dashboard, modules
 from grappelli.dashboard.utils import get_admin_site_name
 
+from .settings.base import ADMIN_SLUG
+
 
 class CustomIndexDashboard(Dashboard):
     def init_with_context(self, context):
@@ -78,6 +80,11 @@ class CustomIndexDashboard(Dashboard):
                         "title": _("Support"),
                         "url": "https://trackdechets.zammad.com/",
                         "external": True,
+                    },
+                    {
+                        "title": _("Stats"),
+                        "url": f"/{ADMIN_SLUG}/request/request/overview/",
+                        "external": False,
                     },
                 ],
             )

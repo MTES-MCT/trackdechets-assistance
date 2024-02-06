@@ -264,12 +264,23 @@
 
 }
 
+/* footer */
+.td-brgm {
+  width: 13rem;
+}
+
 /* Iframe */
 .iframe-stats {
   width: 100%;
   margin: auto;
   background-color: transparent;
 
+}
+
+.td-special-form {
+  height: 0;
+  width: 0;
+  overflow: hidden;
 }
 
 /* utils - text */
@@ -279,6 +290,10 @@
 
 .td-text-center {
   text-align: center;
+}
+
+.td-text-capitalize {
+  text-transform: capitalize;
 }
 
 /* utils - grid */

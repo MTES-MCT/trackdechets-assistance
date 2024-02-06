@@ -12,14 +12,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(BASE_DIR / ".env")
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-
-
-# Application definition
-
 
 INSTALLED_APPS = [
     "grappelli.dashboard",
@@ -52,6 +44,7 @@ MIDDLEWARE = [
     "django_hosts.middleware.HostsRequestMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -175,7 +168,9 @@ REST_FRAMEWORK = {
     ]
 }
 USE_THOUSAND_SEPARATOR = True
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://\w+\.trackdechets.beta.gouv.fr$",
+]
 
 WEBINARS_DOMAIN = env("WEBINARS_DOMAIN")
 
@@ -185,3 +180,15 @@ GRAPPELLI_INDEX_DASHBOARD = "config.dashboard.CustomIndexDashboard"
 BREVO_GENERAL_NEWSLETTER_ID = env.int("BREVO_GENERAL_NEWSLETTER_ID")
 BREVO_TECH_NEWSLETTER_ID = env.int("BREVO_TECH_NEWSLETTER_ID")
 BREVO_API_KEY = env("BREVO_API_KEY")
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+X_FRAME_OPTIONS = "DENY"
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
+    "SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True
+)
+SECURE_HSTS_PRELOAD = env.bool("SECURE_HSTS_PRELOAD", default=True)
