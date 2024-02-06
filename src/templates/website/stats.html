@@ -1,6 +1,6 @@
 {% extends "website/base_website.html" %}
 {% load static hosts %}
-{% block title %}Mentions légales - Trackdéchets{% endblock %}
+{% block title %}Statistiques publiques - Trackdéchets{% endblock %}
 {% block main %}
     <div class="fr-container">
         <iframe src="https://statistiques.trackdechets.beta.gouv.fr/"
@@ -23,23 +23,23 @@
             const isLArge = window.matchMedia(`(max-width: ${breakpoints.large})`);
 
             if (iSmall.matches) {
-                return 8870
+                return 9500
             }
             if (isMedium.matches) {
-                return 7600
+                return 8000
             }
             if (isLArge.matches) {
-                return 7000
+                return 7200
             }
 
-            return 6750
+            return 7200
         }
 
     </script>
     <script>
         (function () {
-            const height = getHeight()
-            const iframe = document.getElementById("iframe-stats")
+            const height = getHeight();
+            const iframe = document.getElementById("iframe-stats");
             iframe.height = `${height}px`;
 
         })();
