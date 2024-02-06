@@ -12,7 +12,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(BASE_DIR / ".env")
 
-
 INSTALLED_APPS = [
     "grappelli.dashboard",
     "grappelli",
@@ -53,6 +52,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "config.middleware.RequestMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "csp.middleware.CSPMiddleware",
     "django_hosts.middleware.HostsResponseMiddleware",
 ]
 
@@ -211,3 +211,26 @@ PERMISSIONS_POLICY = {
     "payment": [],
     "usb": [],
 }
+
+CSP_DEFAULT_SRC = ["'self'", "trackdechets.beta.gouv.fr/", "blob:"]
+CSP_SCRIPT_SRC = [
+    "'self'",
+    "'unsafe-inline'",
+    STATIC_URL,
+]
+CSP_STYLE_SRC = [
+    "'self'",
+    "'unsafe-inline'",
+    STATIC_URL,
+]
+CSP_IMG_SRC = [
+    "'self'",
+    "data:",
+    STATIC_URL,
+]
+CSP_INCLUDE_NONCE_IN = ["script-src", "style-src"]
+CSP_FONT_SRC = ("'self'", "data:", STATIC_URL)
+CSP_CONNECT_SRC = [
+    "'self'",
+]
+CSP_FRAME_SRC = ("'self'", "https://statistiques.trackdechets.beta.gouv.fr")

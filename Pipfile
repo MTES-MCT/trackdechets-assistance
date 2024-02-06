@@ -29,6 +29,7 @@ sib-api-v3-sdk = "*"
 django-compressor = "*"
 django-permissions-policy = "*"
 sentry-sdk = "*"
+django-csp = "*"
 
 [dev-packages]
 djlint = "*"
