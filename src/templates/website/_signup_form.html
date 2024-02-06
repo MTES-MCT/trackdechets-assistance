@@ -1,7 +1,7 @@
 {% load hosts %}
-<form action="{% host_url "nl_signup" variant host 'website_hosts' %}"
+<form action="{% url "nl_signup" variant %}"
       hx-target="#{{ variant }}-signup"
-      hx-post="{% host_url "nl_signup" variant host 'website_hosts' %}"
+      hx-post="{% url "nl_signup" variant %}"
       method="post">
     {% csrf_token %}
     <div class="fr-input-group">
@@ -16,7 +16,7 @@
                    title="Votre adresse électronique (ex. : nom@domaine.fr)"
                    type="email">
             {#  honeypot #}
-            <div style="height: 0; width: 0; overflow: hidden">
+            <div class="td-special-form">
                 <p>Anti-pourriel ne pas remplir le champ suivant</p>
                 <label for="{{ variant }}-id_name">Votre nom</label>
                 <input type="text"

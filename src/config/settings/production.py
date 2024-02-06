@@ -18,6 +18,8 @@ EMAIL_USE_TLS = env("EMAIL_USE_TLS")
 MESSAGE_RECIPIENT = env("MESSAGE_RECIPIENT")
 PARENT_HOST = env("PARENT_HOST")
 
+SECURE_SSL_REDIRECT = True
+
 # django-compressor
 # https://django-compressor.readthedocs.io/en/stable/settings.html#django.conf.settings.COMPRESS_ENABLED
 COMPRESS_ENABLED = env.bool("COMPRESS_ENABLED", default=True)
