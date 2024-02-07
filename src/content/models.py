@@ -24,9 +24,7 @@ class Page(MPTTModel):
     )
     text = MartorField(blank=True)
 
-    parent = TreeForeignKey(
-        "self", on_delete=models.CASCADE, null=True, blank=True, related_name="children"
-    )
+    parent = TreeForeignKey("self", on_delete=models.CASCADE, null=True, blank=True, related_name="children")
     display_contact_form = models.CharField(
         "Affichage du formulaire de contact",
         max_length=6,
@@ -62,19 +60,13 @@ class Message(models.Model):
     created = models.DateTimeField(default=timezone.now)
     username = models.CharField("Nom de l'utilisateur", max_length=250, blank=True)
     email = models.EmailField("Email de l'utilisateur", max_length=250, blank=True)
-    company = models.CharField(
-        "Établissement de l'utilisateur", max_length=250, blank=True
-    )
+    company = models.CharField("Établissement de l'utilisateur", max_length=250, blank=True)
     bsds = models.CharField("Bsds", max_length=300, blank=True)
     siret = models.EmailField("Siret de l'utilisateur", max_length=250, blank=True)
     subject = models.TextField("Objet du message", blank=True)
     message = models.TextField("Message", blank=True)
-    origin_page_title = models.CharField(
-        "Page d'appel du formulaire", max_length=250, blank=True
-    )
-    origin_page_id = models.UUIDField(
-        primary_key=False, null=True, blank=True, editable=True
-    )
+    origin_page_title = models.CharField("Page d'appel du formulaire", max_length=250, blank=True)
+    origin_page_id = models.UUIDField(primary_key=False, null=True, blank=True, editable=True)
     ip = models.GenericIPAddressField(blank=True, null=True)
 
     class Meta:

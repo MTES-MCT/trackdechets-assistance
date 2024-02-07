@@ -77,9 +77,7 @@ class ContactView(FormView):
 
         if self.request.FILES:
             for uploaded_file in self.request.FILES.getlist("files"):
-                message.attach(
-                    uploaded_file.name, uploaded_file.read(), uploaded_file.content_type
-                )
+                message.attach(uploaded_file.name, uploaded_file.read(), uploaded_file.content_type)
 
         message.send()
         # Save message data

@@ -30,9 +30,7 @@ class FaqCard(models.Model):
 
     def clean(self):
         if not self.title and not self.position:
-            raise ValidationError(
-                "Vous devez renseigner au moins le titre ou le contenu"
-            )
+            raise ValidationError("Vous devez renseigner au moins le titre ou le contenu")
 
     class Meta:
         verbose_name = "Faq Card"
@@ -71,9 +69,7 @@ class FaqCardLink(models.Model):
     card = models.ForeignKey(FaqCard, on_delete=models.CASCADE, related_name="links")
     label = models.CharField(max_length=50, default="En savoir plus")
     url = models.URLField(max_length=256)
-    icon_type = models.CharField(
-        max_length=100, blank=True, choices=IconTypeText.choices
-    )
+    icon_type = models.CharField(max_length=100, blank=True, choices=IconTypeText.choices)
 
     def __str__(self):
         return self.label
@@ -113,5 +109,6 @@ class StatsDigest(models.Model):
         return f"StatDigest-{self.retrieved_at:x}"
 
     class Meta:
+        ordering = ("-retrieved_at",)
         verbose_name = "Stat digest"
         verbose_name_plural = "Stat digests"

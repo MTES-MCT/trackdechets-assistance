@@ -38,9 +38,7 @@ class Webinar(models.Model):
     scheduled_at = models.DateTimeField("Date et heure du webinaire")
     duration = models.PositiveSmallIntegerField("Durée prévue en mn", default=120)
 
-    display_days_before = models.PositiveSmallIntegerField(
-        "Afficher X jours avant", default=28
-    )
+    display_days_before = models.PositiveSmallIntegerField("Afficher X jours avant", default=28)
 
     visio_link = models.URLField("Lien visio", blank=True)
 
@@ -92,9 +90,7 @@ class Webinar(models.Model):
         ical_event.add("uid", self.uid)
         ical_event.add("dtstamp", self.ends_at)
 
-        ical_event.add(
-            "url", f"https://{settings.WEBINARS_DOMAIN}{self.get_absolute_url()}"
-        )
+        ical_event.add("url", f"https://{settings.WEBINARS_DOMAIN}{self.get_absolute_url()}")
         cal.add_component(ical_event)
 
         return cal.to_ical()

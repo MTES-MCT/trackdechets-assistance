@@ -53,7 +53,7 @@ class Home(TemplateView):
 
 
 class UseTerms(TemplateView):
-    template_name = "website/use_terms.html"
+    template_name = "website/tos.html"
 
 
 class Partners(TemplateView):
@@ -84,7 +84,7 @@ def create_newsletter_contact(email, newsletter_type):
     try:
         api_instance.create_contact(create_contact)
         return True
-    except ApiException as e:
+    except ApiException:  # noqa
         pass
     return False
 
@@ -100,9 +100,7 @@ def nl_signup(request, variant=None):
     has_honey_pot = request.POST.get(HONEYPOT_FIELD_NAME, None)
     if form.is_valid():
         if not has_honey_pot:
-            creation_success = create_newsletter_contact(
-                form.cleaned_data["email"], variant
-            )
+            creation_success = create_newsletter_contact(form.cleaned_data["email"], variant)
         return render(
             request,
             "website/_signup_form.html",
@@ -113,9 +111,7 @@ def nl_signup(request, variant=None):
             },
         )
 
-    return render(
-        request, "website/_signup_form.html", context={"form": form, "variant": variant}
-    )
+    return render(request, "website/_signup_form.html", context={"form": form, "variant": variant})
 
 
 def home_redirect(request):

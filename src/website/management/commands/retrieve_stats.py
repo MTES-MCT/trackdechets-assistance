@@ -15,3 +15,5 @@ class Command(BaseCommand):
             bsd_count=values.get("total_bsdd_created"),
             company_count=values.get("total_companies"),
         )
+        stats_pk = StatsDigest.objects.all()[3:]
+        StatsDigest.objects.filter(pk__in=stats_pk).delete()
