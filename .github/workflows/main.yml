@@ -59,4 +59,7 @@ jobs:
           DJANGO_SETTINGS_MODULE: core.settings.test
           DATABASE_URL: postgresql://admin:postgres@localhost/td_website_test
           ADMIN_SLUG: admin
-          MESSAGE_RECIPIENTS: lorem@ipsum.lol
+          WEBINARS_DOMAIN: formations
+          BREVO_GENERAL_NEWSLETTER_ID: 1
+          BREVO_TECH_NEWSLETTER_ID: 2
+          BREVO_API_KEY: x
