@@ -84,7 +84,7 @@ def create_newsletter_contact(email, newsletter_type):
     try:
         api_instance.create_contact(create_contact)
         return True
-    except ApiException as e:
+    except ApiException:  # noqa
         pass
     return False
 
