@@ -28,9 +28,7 @@ class ContactForm(forms.Form):
         required=False,
     )
     subject = forms.CharField(label="Objet", min_length=3, max_length=100)
-    body = forms.CharField(
-        label="Question", widget=forms.Textarea(), min_length=20, max_length=3000
-    )
+    body = forms.CharField(label="Question", widget=forms.Textarea(), min_length=20, max_length=3000)
 
     files = ValidableMultiFileField(
         label="Fichier(s)",
@@ -38,11 +36,7 @@ class ContactForm(forms.Form):
         min_num=0,
         max_num=5,
         max_file_size=1024 * 1024 * 2.5,
-        validators=[
-            FileExtensionValidator(
-                ["pdf", "png", "jpg", "jpeg", "doc", "docx", "xls", "xlsx"]
-            )
-        ],
+        validators=[FileExtensionValidator(["pdf", "png", "jpg", "jpeg", "doc", "docx", "xls", "xlsx"])],
     )
 
     captcha = MathCaptchaField(label="Anti robots")
