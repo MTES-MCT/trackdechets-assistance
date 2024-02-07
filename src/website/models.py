@@ -113,5 +113,6 @@ class StatsDigest(models.Model):
         return f"StatDigest-{self.retrieved_at:x}"
 
     class Meta:
+        ordering = ("-retrieved_at",)
         verbose_name = "Stat digest"
         verbose_name_plural = "Stat digests"
