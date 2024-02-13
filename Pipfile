@@ -28,7 +28,7 @@ django-template-partials = "*"
 sib-api-v3-sdk = "*"
 django-compressor = "*"
 django-permissions-policy = "*"
-sentry-sdk = "*"
+sentry-sdk = {extras = ["django"], version = "*"}
 django-csp = "*"
 
 [dev-packages]

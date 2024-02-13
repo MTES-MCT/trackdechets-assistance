@@ -38,5 +38,5 @@ sentry_sdk.init(
     integrations=[
         DjangoIntegration(),
     ],
-    traces_sample_rate=1.0,
+    traces_sample_rate=0.1,
 )
