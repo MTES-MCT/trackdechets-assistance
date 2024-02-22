@@ -1,5 +1,5 @@
 {% load hosts %}
-<form action="{% url "nl_signup" variant %}"
+<form action="{% host_url "nl_signup" variant host 'website_hosts' %}"
       hx-target="#{{ variant }}-signup"
       hx-post="{% url "nl_signup" variant %}"
       method="post">
