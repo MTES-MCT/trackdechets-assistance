@@ -30,6 +30,7 @@ django-compressor = "*"
 django-permissions-policy = "*"
 sentry-sdk = {extras = ["django"], version = "*"}
 django-csp = "*"
+dnspython = "*"
 
 [dev-packages]
 djlint = "*"
