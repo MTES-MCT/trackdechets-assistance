@@ -1,6 +1,11 @@
 {% load widget_tweaks form_utils %}
 {{ form.media.css }}
-{% if form.non_field_errors %}<p class="fr-error-text">{{ form.non_field_errors.0 }}</p>{% endif %}
+{% if form.non_field_errors %}
+    <div class="fr-alert fr-alert--error fr-mt-5v">
+        <h3 class="fr-alert__title">Erreur</h3>
+        {% for error in  form.non_field_errors %}<p>{{ error }}</p>{% endfor %}
+    </div>
+{% endif %}
 {% for field in form.hidden_fields %}{{ field }}{% endfor %}
 {% for field in form.visible_fields %}
     <div class="fr-mb-4v">
@@ -22,13 +27,14 @@
                 {{ field|add_class:"fr-upload" }}
             </div>
         {% else %}
-            <label for="{{ field.id }}" class="fr-label">
-                {{ field.label }}
-                {% if not field.field.required %}(non requis){% endif %}
-            </label>
-            {{ field|add_class:"fr-input"|append_attr:"autocomplete:off" }}
-        {% endif %}
-        {% if field.help_text %}<span class="help-block">{{ field.help_text|safe }}</span>{% endif %}
-        {% if field.errors %}<p class="fr-error-text">{{ field.errors.0 }}</p>{% endif %}
-    </div>
-{% endfor %}
+            <div class="fr-input-group {% if field.errors %}fr-input-group--error{% endif %}">
+                <label for="{{ field.id }}" class="fr-label">
+                    {{ field.label }}
+                    {% if not field.field.required %}(non requis){% endif %}
+                </label>
+                {{ field|add_class:"fr-input"|append_attr:"autocomplete:off"|add_error_class:"fr-input--error" }}
+            {% endif %}
+            {% if field.help_text %}<span class="help-block">{{ field.help_text|safe }}</span>{% endif %}
+            {% if field.errors %}<p class="fr-error-text">{{ field.errors.0 }}</p>{% endif %}
+        </div>
+    {% endfor %}
