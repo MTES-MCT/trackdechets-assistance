@@ -48,6 +48,8 @@ class ContactForm(forms.Form):
     captcha = MathCaptchaField(label="Anti robots")
 
     def verify_domain(self, email):
+        if not email or "@" not in email:
+            return False
         domain = email.split("@")[1]
         try:
             dns.resolver.resolve(domain, "MX")
@@ -59,6 +61,8 @@ class ContactForm(forms.Form):
 
     def clean(self):
         super().clean()
+        if not self.is_valid():
+            return self.cleaned_data
 
         email = self.cleaned_data.get("email")
         email_confirm = self.cleaned_data.get("email_confirm")
