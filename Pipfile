@@ -31,6 +31,7 @@ django-permissions-policy = "*"
 sentry-sdk = {extras = ["django"], version = "*"}
 django-csp = "*"
 dnspython = "*"
+factory-boy = "*"
 
 [dev-packages]
 djlint = "*"

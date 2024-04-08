@@ -16,3 +16,4 @@ PASSWORD_HASHERS = ["django.contrib.auth.hashers.MD5PasswordHasher"]  # faster h
 SECRET_KEY = "xyz12345"
 
 MESSAGE_RECIPIENTS = ["lorem@ipsum.lol"]
+ALLOWED_HOSTS = ["*"]  # for host based testing
