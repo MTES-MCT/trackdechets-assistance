@@ -33,10 +33,20 @@ COMPRESS_OFFLINE = True  # Offline compression is required when using Whitenoise
 
 SENTRY_URL = env("SENTRY_URL")
 
+
+def traces_sampler(ctx):
+    """Exclude statics from traces."""
+    if "wsgi_environ" in ctx:
+        url = ctx["wsgi_environ"].get("PATH_INFO", "")
+        if url.startswith("/static/"):
+            return 0
+    return 0.1
+
+
 sentry_sdk.init(
     dsn=SENTRY_URL,
     integrations=[
         DjangoIntegration(),
     ],
-    traces_sample_rate=0.1,
+    traces_sampler=traces_sampler,
 )
