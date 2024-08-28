@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "==4.*"
+django = "*"
 django-environ = "*"
 whitenoise = "*"
 gunicorn = "*"
@@ -37,6 +37,8 @@ factory-boy = "*"
 djlint = "*"
 ruff = "*"
 isort = "*"
+django-upgrade= "*"
+bandit = "*"
 
 [requires]
 python_version = "3.11"

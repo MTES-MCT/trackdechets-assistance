@@ -3,15 +3,17 @@
 **CMS pour le site web Trackdéchets**
 
 <img height="100px" style="margin-right: 20px" src="./src/static/img/trackdechets.png" alt="Logo Trackdéchets"></img>
-<img height="100px" src="./src/common_static/img/marianne_mte.svg" alt="Logo MTES MCT"></img>
+<img height="100px" src="./src/static/img/marianne_mte.svg" alt="Logo MTES MCT"></img>
 
 # Introduction
 
-Micro-cms pour administrer le contenu de l'assistance questions-réponses guidées de Trackdéchets.
+Micro-cms pour administrer:
+- le contenu de l'assistance questions-réponses guidées de Trackdéchets
+- le site web Trackdéchets etle calendrier des formations
 
 # Pré-requis
 
-- Python > 3.9
+- Python >= 3.12
 - pipenv
 
 # Installation
@@ -40,11 +42,6 @@ Utiliser :
     $ ./lint.sh
 ```
 
-et pour les templates :
-
-```
-    $ djlint templates --profile=django --reformat
-```
 
 ## Licence
 
