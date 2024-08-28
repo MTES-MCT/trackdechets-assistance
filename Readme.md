@@ -1,6 +1,6 @@
-# Trackdéchets assistance
+# Site web Trackdéchets
 
-**CMs pour l'assistance Trackdéchets**
+**CMS pour le site web Trackdéchets**
 
 <img height="100px" style="margin-right: 20px" src="./src/static/img/trackdechets.png" alt="Logo Trackdéchets"></img>
 <img height="100px" src="./src/common_static/img/marianne_mte.svg" alt="Logo MTES MCT"></img>
