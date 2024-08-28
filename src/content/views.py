@@ -95,7 +95,7 @@ class ContactView(FormView):
         return res
 
     def get_client_ip(self):
-        x_forwarded_for = self.request.META.get("HTTP_X_FORWARDED_FOR")
+        x_forwarded_for = self.request.headers.get("x-forwarded-for")
         if x_forwarded_for:
             ip = x_forwarded_for.split(",")[0]
         else:
