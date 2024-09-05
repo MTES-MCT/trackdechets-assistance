@@ -1,8 +1,8 @@
 # Borrowed from https://github.com/alsoicode/django-simple-math-captcha and slightly modified
 # because current django version issues
 
+import secrets
 from hashlib import sha1
-from random import choice, randint
 
 from django import forms
 from django.conf import settings
@@ -24,16 +24,16 @@ OPERATORS = tuple(CALCULATIONS)
 def hash_answer(value):
     answer = str(value)
     to_encode = (settings.SECRET_KEY + answer).encode("utf-8")
-    return sha1(to_encode).hexdigest()
+    return sha1(to_encode, usedforsecurity=False).hexdigest()
 
 
 def get_operator():
-    return choice(OPERATORS)
+    return secrets.choice(OPERATORS)
 
 
 def get_numbers(start_int, end_int, operator):
-    x = randint(start_int, end_int)
-    y = randint(start_int, end_int)
+    x = secrets.choice(range(start_int, end_int))
+    y = secrets.choice(range(start_int, end_int))
 
     # avoid negative results for subtraction
     if y > x and operator == SUBTRACT:

@@ -112,7 +112,7 @@
   margin-top: 1em;
 }
 
-@media (width >= 62em) {
+@media (min-width: 62em) {
   .fr-header__brand-top {
     width: auto;
   }
@@ -146,7 +146,7 @@
   row-gap: 0.5em;
   align-items: center;
 
-  @media (width > 62em) {
+  @media (min-width: 62em) {
     margin-top: auto;
     flex-direction: row;
     column-gap: 1em;
@@ -168,7 +168,7 @@
   border: 1px solid var(--border-default-grey);
   flex-direction: column;
   justify-content: center;
-  @media (width > 62em) {
+  @media (width > 62em)  (min-width: 62em) {
     justify-content: space-between;
     flex-direction: row;
     row-gap: 0.5em;
@@ -204,7 +204,7 @@
 .videos-links {
   gap: 1rem;
 
-  @media (width > 62em) {
+  @media    (min-width: 62em) {
     height: 230px;
   }
 }
@@ -243,7 +243,7 @@
   align-items: flex-start;
   background-color: #F6F6F6;
 
-  @media (width > 62em) {
+  @media (min-width: 62em) {
     grid-column: span 3;
   }
 }
@@ -301,3 +301,6 @@
   border-left: 1px solid var(--text-action-high-blue-france);
 }
 
+.td-grid-row--gap-1{
+  gap:1rem;
+}

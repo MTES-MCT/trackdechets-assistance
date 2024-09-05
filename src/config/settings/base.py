@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "widget_tweaks",
     "adminsortable2",
+    "solo",
     "compressor",
     "mptt",
     "martor",
@@ -136,6 +137,7 @@ AUTH_USER_MODEL = "accounts.User"
 
 ADMIN_SLUG = env("ADMIN_SLUG")
 
+
 MARTOR_ENABLE_CONFIGS = {
     "emoji": "true",  # to enable/disable emoji icons.
     "imgur": "false",  # to enable/disable imgur/custom uploader.
@@ -185,8 +187,11 @@ BREVO_API_KEY = env("BREVO_API_KEY")
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 X_FRAME_OPTIONS = "DENY"
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = False
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ["http://assistance.track.test"]
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_HSTS_SECONDS = 15768000  # 6 months
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool("SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)

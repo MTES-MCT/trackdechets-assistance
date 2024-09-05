@@ -1,9 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
-
-
-class Menu:
-    pass
+from solo.models import SingletonModel
 
 
 class FaqLink(models.Model):
@@ -112,3 +109,14 @@ class StatsDigest(models.Model):
         ordering = ("-retrieved_at",)
         verbose_name = "Stat digest"
         verbose_name_plural = "Stat digests"
+
+
+class BannerConfiguration(SingletonModel):
+    title = models.CharField("Title", max_length=100, default="", blank=True)
+    text = models.TextField("Text", default="")
+
+    def __str__(self):
+        return "Banner Configuration"
+
+    class Meta:
+        verbose_name = "Banner Configuration"

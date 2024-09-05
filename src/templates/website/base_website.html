@@ -1,4 +1,5 @@
-{% load static hosts compress %}
+{% load static hosts compress solo_tags %}
+{% get_solo 'website.BannerConfiguration' as warning_banner %}
 <!DOCTYPE html>
 {#keep theme light#}
 <html lang="fr">
@@ -11,8 +12,8 @@
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no"
               name="viewport">
         {% compress css %}
-            <link rel="stylesheet" href="{% static "css/dsfr.css" %}">
-            <link href="{% static "css/utility.min.css" %}" rel="stylesheet">
+            <link rel="stylesheet" href="{% static "css/dsfr.min.css" %}">
+            <link href="{% static "css/utility/utility.min.css" %}" rel="stylesheet">
             <link href="{% static "css/trackdechets.css" %}" rel="stylesheet">
         {% endcompress %}
         <!-- Définit la couleur de thème du navigateur (Safari/Android) -->
@@ -40,6 +41,20 @@
             </ul>
         </nav>
     </div>
+    {#  warning banner #}
+    {% if warning_banner.text %}
+        <div class="fr-notice fr-notice--alert">
+            <div class="fr-container">
+                <div class="fr-notice__body">
+                    <p>
+                        <span class="fr-notice__title">{{ warning_banner.title }}</span>
+                        <span class="fr-notice__desc">{{ warning_banner.text }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {#  end warning banner #}
     <header class="fr-header fr-mb-2v" role="banner">
         <div class="fr-header__body">
             <div class="fr-container">
