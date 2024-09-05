@@ -54,6 +54,9 @@ jobs:
       - name: Bandit security checks
         run: pipenv run bandit --exit-zero -c pyproject.toml  -r src
 
+      - name: Bandit security checks
+        run: pipenv run bandit --exit-zero -c pyproject.toml  -r src
+
       - name: Run Tests
         working-directory: src
         run: |

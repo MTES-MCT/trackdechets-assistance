@@ -41,6 +41,8 @@ class Home(TemplateView):
         faq_cards_left = faq_cards[:half]
         faq_cards_right = faq_cards[half:]
 
+        # warning_banner = BannerConfiguration.objects.first()
+
         return super().get_context_data(
             **kwargs,
             webinars=self.get_webinars(),
@@ -48,6 +50,7 @@ class Home(TemplateView):
             faq_links=self.get_faq_links(),
             video_links=self.get_video_links(),
             faq_cards={"left": faq_cards_left, "right": faq_cards_right},
+            # warning_banner=warning_banner,
             is_homepage=True,
         )
 
