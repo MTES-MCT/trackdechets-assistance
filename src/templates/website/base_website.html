@@ -60,35 +60,40 @@
             <div class="fr-container">
                 <div class="fr-header__body-row">
                     <div class="fr-header__brand fr-enlarge-link">
-                        <div class="fr-header__logos">
-                            <div class="fr-header__brand-top">
-                                <div class="fr-header__logo">
-                                    <p class="fr-logo">
-                                        Ministère
-                                        <br />
-                                        de la transition
-                                        <br />
-                                        écologique
-                                    </p>
-                                </div>
+                        <div class="fr-header__brand-top">
+                            <div class="fr-header__logo">
+                                <p class="fr-logo">
+                                    Ministère
+                                    <br>
+                                    de la transition
+                                    <br>
+                                    écologique,
+                                    <br>
+                                    de
+                                    l'énergie, du climat,
+                                    <br>
+                                    et de la prévention
+                                    <br>
+                                    des risques
+                                </p>
                             </div>
-                            <div class="fr-header__service">
-                                <a href="/" title="Accueil - Trackdéchets" class="router-link-active">
-                                    <img alt="Logo Trackdéchets" height="70px" src="{% static "img/trackdechets.png" %}" width="70px" />
-                                </a>
+                            <div class="fr-header__operator">
+                                <img alt="Logo Trackdéchets" height="70px" src="{% static "img/trackdechets.png" %}" width="70px" />
                             </div>
                             <div class="fr-header__navbar">
-                                <button data-fr-opened="false"
+                                <button class="fr-btn--menu fr-btn"
+                                        data-fr-opened="false"
                                         aria-controls="modal-header__menu"
                                         aria-haspopup="menu"
                                         id="button-modal-menu"
-                                        title="Menu"
-                                        class="fr-btn--menu fr-btn">Menu</button>
+                                        title="Menu">Menu</button>
                             </div>
                         </div>
-                        <div class="header__baseline">
-                            <h1 class="fr-h5">Trackdéchets</h1>
-                            <p class="fr-text">Gérer la traçabilité en toute sécurité</p>
+                        <div class="fr-header__service">
+                            <a href="/" title="Accueil - Trackdéchets">
+                                <p class="fr-header__service-title">Trackdéchets</p>
+                            </a>
+                            <p class="fr-header__service-tagline">Gérer la traçabilité des déchets en toute sécurité</p>
                         </div>
                     </div>
                     <div class="fr-header__tools">
