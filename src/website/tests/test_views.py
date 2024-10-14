@@ -30,3 +30,15 @@ def test_cgu(anon_client):
     res = anon_client.get(url)
     assert res.status_code == 200
     assert "Conditions Générales d’Utilisation" in res.content.decode()
+
+
+def test_accessibility(anon_client):
+    url = reverse("accessibility")
+    res = anon_client.get(url)
+    assert res.status_code == 200
+    assert "Déclaration d’accessibilité" in res.content.decode()
+
+
+def test_resources(anon_client):
+    res = anon_client.get("/resources")
+    assert res.status_code == 301
