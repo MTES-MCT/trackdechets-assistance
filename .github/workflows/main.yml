@@ -69,3 +69,5 @@ jobs:
           BREVO_GENERAL_NEWSLETTER_ID: 1
           BREVO_TECH_NEWSLETTER_ID: 2
           BREVO_API_KEY: x
+          BREVO_CATEGORY_FORMULAIRE_SITE_WEB: 2
+          

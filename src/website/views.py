@@ -83,7 +83,9 @@ def create_newsletter_contact(email, newsletter_type):
     list_id = MAPPING.get(newsletter_type)
     if not list_id:
         return False
-    create_contact = sib_api_v3_sdk.CreateContact(email=email, list_ids=[list_id])
+    create_contact = sib_api_v3_sdk.CreateContact(
+        email=email, list_ids=[list_id], attributes={"CHANNEL": settings.BREVO_CATEGORY_FORMULAIRE_SITE_WEB}
+    )
     try:
         api_instance.create_contact(create_contact)
         return True

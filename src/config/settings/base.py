@@ -137,7 +137,6 @@ AUTH_USER_MODEL = "accounts.User"
 
 ADMIN_SLUG = env("ADMIN_SLUG")
 
-
 MARTOR_ENABLE_CONFIGS = {
     "emoji": "true",  # to enable/disable emoji icons.
     "imgur": "false",  # to enable/disable imgur/custom uploader.
@@ -237,3 +236,5 @@ CSP_CONNECT_SRC = [
     "'self'",
 ]
 CSP_FRAME_SRC = ("'self'", "https://statistiques.trackdechets.beta.gouv.fr")
+
+BREVO_CATEGORY_FORMULAIRE_SITE_WEB = env("BREVO_CATEGORY_FORMULAIRE_SITE_WEB")
