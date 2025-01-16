@@ -1,13 +1,15 @@
 {% extends "website/base_website.html" %}
-{% load static hosts %}
+{% load hosts static %}
 {% block title %}Statistiques publiques - Trackdéchets{% endblock %}
+
 {% block main %}
     <div class="fr-container">
         <iframe src="https://statistiques.trackdechets.beta.gouv.fr/"
                 class="iframe-stats"
                 id="iframe-stats"></iframe>
     </div>
-{% endblock %}
+{% endblock main %}
+
 {% block extra_scripts %}
     <script>
         function getHeight() {
@@ -44,4 +46,4 @@
 
         })();
     </script>
-{% endblock %}
+{% endblock extra_scripts %}

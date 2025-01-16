@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-{% load static hosts %}
+{% load hosts static %}
 {% block title %}Assistance Trackdéchets{% endblock %}
+
 {% block main %}
     <main class="main fr-mt-4w">
         <div class="fr-alert fr-alert--info"
@@ -9,7 +10,8 @@
              hx-swap="outerHTML"
              hx-trigger="load"></div>
     </main>
-{% endblock %}
+{% endblock main %}
+
 {% block scripts %}
     <script src="{% static "js/htmx.js" %}" defer></script>
-{% endblock %}
+{% endblock scripts %}

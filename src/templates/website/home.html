@@ -1,5 +1,5 @@
 {% extends "website/base_website.html" %}
-{% load static hosts partials %}
+{% load hosts partials static %}
 {% partialdef faq_card %}
 <div class="fr-callout">
     {% if card.title %}<h4>{{ card.title }}</h4>{% endif %}
@@ -214,4 +214,4 @@
         <a class="fr-btn fr-btn--secondary fr-btn--icon-right fr-icon-book-2-line"
            href="https://developers.trackdechets.beta.gouv.fr/">Consulter la documentation technique</a>
     </p>
-{% endblock %}
+{% endblock main %}

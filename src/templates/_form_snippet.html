@@ -1,9 +1,9 @@
-{% load widget_tweaks form_utils %}
+{% load form_utils widget_tweaks %}
 {{ form.media.css }}
 {% if form.non_field_errors %}
     <div class="fr-alert fr-alert--error fr-mt-5v">
         <h3 class="fr-alert__title">Erreur</h3>
-        {% for error in  form.non_field_errors %}<p>{{ error }}</p>{% endfor %}
+        {% for error in form.non_field_errors %}<p>{{ error }}</p>{% endfor %}
     </div>
 {% endif %}
 {% for field in form.hidden_fields %}{{ field }}{% endfor %}

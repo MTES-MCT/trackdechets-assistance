@@ -1,7 +1,7 @@
-{% load static hosts compress solo_tags %}
+{% load compress hosts solo_tags static %}
 {% get_solo 'website.BannerConfiguration' as warning_banner %}
 <!DOCTYPE html>
-{#keep theme light#}
+{# keep theme light #}
 <html lang="fr">
     <head>
         <title>
@@ -41,7 +41,7 @@
             </ul>
         </nav>
     </div>
-    {#  warning banner #}
+    {# warning banner #}
     {% if warning_banner.text %}
         <div class="fr-notice fr-notice--alert">
             <div class="fr-container">
@@ -54,7 +54,7 @@
             </div>
         </div>
     {% endif %}
-    {#  end warning banner #}
+    {# end warning banner #}
     <header class="fr-header fr-mb-2v" role="banner">
         <div class="fr-header__body">
             <div class="fr-container">
@@ -70,11 +70,11 @@
                                     écologique,
                                     <br>
                                     de
-                                    l'énergie, du climat,
+                                    de la biodiversité,
                                     <br>
-                                    et de la prévention
+                                    de la forêt, de la mer
                                     <br>
-                                    des risques
+                                    et de la pêche
                                 </p>
                             </div>
                             <div class="fr-header__operator">

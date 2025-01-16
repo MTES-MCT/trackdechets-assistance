@@ -35,11 +35,11 @@ factory-boy = "*"
 django-solo = "*"
 
 [dev-packages]
-djlint = "*"
 ruff = "*"
 isort = "*"
 django-upgrade= "*"
 bandit = "*"
+djade = "*"
 
 [requires]
 python_version = "3.11"
