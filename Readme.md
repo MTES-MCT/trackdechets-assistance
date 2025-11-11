@@ -19,21 +19,21 @@ Micro-cms pour administrer:
 
 # Pré-requis
 
-- Python >= 3.11
-- pipenv
+- Python >= 3.13
+- [uv](https://docs.astral.sh/uv/)
 
 # Installation
-
-Initialisation et activation d'un environnement
-
-```
-$ pipenv shell
-```
 
 Installation des dépendances
 
 ```
-$ pipenv install -d
+$ uv sync --frozen
+```
+
+Pour les dépendances de test et de développement.
+
+```
+$ uv sync --frozen --group test --group dev
 ```
 
 # Environnement
