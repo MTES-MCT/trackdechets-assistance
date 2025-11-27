@@ -1011,7 +1011,7 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "django", specifier = ">=5.2.7" },
+    { name = "django", specifier = ">=5.2.8" },
     { name = "django-admin-sortable2", specifier = ">=2.2.8" },
     { name = "django-compressor", specifier = "==4.5.1" },
     { name = "django-cors-headers", specifier = "==4.9.0" },
