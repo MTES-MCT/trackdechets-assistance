@@ -71,6 +71,10 @@ class LegalNotice(TemplateView):
     template_name = "website/mentions_legales.html"
 
 
+class PolitiquesConfidentialites(TemplateView):
+    template_name = "website/politiques_confidentialites.html"
+
+
 GENERAL_TYPE = "general"
 TECH_TYPE = "tech"
 MAPPING = {
