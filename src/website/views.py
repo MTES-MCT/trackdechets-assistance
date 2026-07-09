@@ -67,6 +67,10 @@ class Accessibility(TemplateView):
     template_name = "website/accessibility.html"
 
 
+class LegalNotice(TemplateView):
+    template_name = "website/mentions_legales.html"
+
+
 GENERAL_TYPE = "general"
 TECH_TYPE = "tech"
 MAPPING = {
