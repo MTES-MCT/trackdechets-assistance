@@ -219,13 +219,11 @@
                     </li>
                     <li class="fr-footer__bottom-item">
                         <a class="fr-footer__bottom-link"
-                           download="Mentions-legales.pdf"
                            href="{% host_url 'legal_notice' host 'website_hosts' %}">Mentions légales</a>
                     </li>
                     <li class="fr-footer__bottom-item">
                         <a class="fr-footer__bottom-link"
-                           href="{% static 'pdf/politique-de-confidentialite.pdf' %}"
-                           download="Politique-de-confidentialite.pdf">Politique de confidentialité</a>
+                           href="{% host_url 'politiques_confidentialites' host 'website_hosts' %}">Politique de confidentialité</a>
                     </li>
                     <li class="fr-footer__bottom-item">
                         <a class="fr-footer__bottom-link"
